@@ -1,0 +1,241 @@
+$main-color: rgb(230,100,30);
+a
+    text-decoration: none !important
+    color: #000
+    &:hover
+        color: $main-color
+li
+    list-style: none !important
+
+*
+    margin: 0
+    padding: 0
+    font-family: Roboto
+input 
+    outline: 0 !important;
+.container
+    width: 1140px
+    margin: 0 auto
+header
+    height: 140px
+    .header_nav
+        &_lists
+            height: 50px
+            display: flex
+            justify-content: space-between
+            align-items: center
+            &_item
+                margin-left: 10px
+                a
+                    i
+                        color: $main-color
+                        margin-right: 6px
+                        font-size: 20px
+                &:last-child
+                    a
+                        i
+                            margin-right: 0
+                &:hover
+                    color: $main-color
+            &_item_login
+                display: flex
+                align-items: center
+                justify-content: center
+                i
+                    color: $main-color
+                    margin-left: 10px
+                    font-size: 25px
+                    &:hover
+                        color: $main-color
+            &_item_number
+                font-size: 25px
+                color: #000
+                margin-right: 20px
+                &_icon
+                    display: flex
+                    align-items: center
+                    i
+                        color: $main-color
+                        margin-right: 5px
+                        font-size: 25px
+                        
+            &_section
+                display: flex
+                align-items: center
+                a:hover
+                    color: $main-color
+                
+                        
+                        
+    .subtitle
+        height: 90px
+        background-color: rgb(245,245,245)
+        &_wrapper
+            display: flex
+            justify-content: space-between
+            align-items: center
+            height: 90px
+        &_search
+            display: flex
+            justify-content: center
+            align-items: center
+            input
+                height: 50px
+                padding-left: 15px
+                color: rgb(151,151,151)
+                min-width: 500px
+                border: none
+                border-radius: 5px 0 0 5px
+            button
+                border: none
+                border-radius: 0 5px 5px 0
+                height: 50px
+                width: 60px
+                background-color: $main-color
+                cursor: pointer
+                position: relative
+                z-index: 1  
+                i
+                    color: #fff
+                    font-size: 30px
+                    z-index: 3
+                // &:hover:after
+                //     content: '';
+                //     width: 100%
+                //     height: 100%
+                //     position: absolute;
+                   
+                //     top: 0;
+                //     left: 0;
+                //     z-index: 2;
+                //     transition: all 0.3s;
+                //     background-color: rgb(197,11,109)
+                &:hover
+                    transition: all 0.3s;
+                    background-color: rgb(197,11,109)
+                    
+                    
+                
+                    
+
+        &_img
+            height: 80px
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 150px
+            transition: 0.5s all
+            &_link_logo
+                height: 50px
+                &:hover
+                    height: 60px
+                    transition: 0.5s all
+                &:not(:hover) 
+                    transition: 0.5s all;
+
+        &_car
+            display: block
+            i
+                display: flex
+                font-size: 45px
+                color: $main-color
+                position: relative
+                transition: 0.5s all
+                span
+                    font-size: 17px
+                span:last-child
+                    position: absolute
+                    display: block
+                    bottom: 2%
+                    right: 10%
+                    color: #000
+                &:hover
+                    color: rgb(197,11,109)
+                &::before
+                    margin-right: 10px
+main
+    .catalog-menu
+        &-list
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 50px
+            &-items
+                &-link
+                    color: #000
+                    text-transform: uppercase
+                    font-size: 18px
+                    font-weight: 400
+                    margin: 0 10px
+footer
+    .container_wrapper
+        display: flex
+        justify-content: space-between
+        align-content: center
+    .company
+        height: 80px
+        background-color: rgb(245,245,245)
+        &_list
+            display: flex
+            height: 80px
+            justify-content: center
+            align-items: center
+            &_item
+                margin: 0px 15px
+                &_link
+                    text-transform: uppercase
+                    tab-size: 22px
+                    font-weight: 400
+                    &:hover
+                        color: $main-color
+    .gbstore
+        padding-top: 50px
+        .all-information
+            margin-top: 20px
+        .store_information
+            width: 365px
+            &_item
+                .img_wraper
+                    height: 80px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    width: 150px
+                    transition: 0.5s all
+                    img
+                        height: 50px
+                        &:hover
+                            height: 60px
+                            transition: 0.5s all
+                        &:not(:hover) 
+                            transition: 0.5s all;
+                .messengers
+                    display: inline-block
+                    height: 50px
+                    width: 50px
+                    background-color: $main-color
+                    border-radius: 5px
+                    margin-right: 15px
+                    i
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        height: 100%
+                        color: #fff
+                        font-size: 30px
+                .contacts
+                    
+                    i   
+                        margin-right: 10px
+                        color: $main-color
+                    &:hover
+                        color: $main-color
+        .categories
+            width: 110px
+        .personal_area
+            width: 130px
+        .requisites
+            width: 345px
+.cl-purple
+    color: rgb(211,72,146)
+    font-weight: 500

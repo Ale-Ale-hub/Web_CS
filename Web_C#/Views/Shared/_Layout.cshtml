@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="~/css/main.css">
+    <title>@ViewData["Title"] - Web_C_</title>
+    
+</head>
+<body>
+    <header>
+        
+            <nav class="header_nav">
+                <div class="container">
+                    <div class="header_nav_lists">
+                        <ul class="header_nav_lists_section">
+                            <li class="header_nav_lists_item"><a href=""><i class="fa fa-truck" aria-hidden="true"></i>Доставка</a></li>
+                            <li class="header_nav_lists_item"><a href=""><i class="fa fa-certificate" aria-hidden="true"></i>Гарантия</a></li>
+                            <li class="header_nav_lists_item"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i>Контакты</a></li>
+                            <li class="header_nav_lists_item"><a href=""><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                        </ul>
+                
+                        <div class="header_nav_lists_section">
+                                <a href="tel:+74957755998" class="header_nav_lists_item_number">+7 (495) 77 55 998</a>
+                                <a href="" class="header_nav_lists_item_number_icon"><i class="fa fa-phone" aria-hidden="true"></i>Обратный звонок</a>
+                        </div>
+                        <ul class="header_nav_lists_section">
+                            <li class="header_nav_lists_item_login"><a href="">Вход</a><i class="fa fa-sign-in" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="subtitle">
+                <div class="container">
+                    <div class="subtitle_wrapper">
+                        <div class="subtitle_img"><a href="" class="subtitle_img_link"><img src="img/main-logo.png" alt="" class="subtitle_img_link_logo"></a></div>
+                        <form action="" class="subtitle_search">
+                            <input type="search" name="query" placeholder="Поиск товара по каталогу...">
+                            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                        <a href="" class="subtitle_car">
+                            <i class="fa fa-shopping-cart" aria-hidden="true">
+                                <span>Корзина</span>
+                                <span>Пусто</span>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <main class="" role="main">
+        <div class="catalog-menu">
+            <div class="container">
+                <ul class="catalog-menu-list">
+                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">телефоны</a></li>
+                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">планшеты</a></li>
+                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">ноутбуки</a></li>
+                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">компьютеры</a></li>
+                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">аксессуары</a></li>
+                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">гаджеты</a></li>
+                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">акустика</a></li>
+                </ul>
+            </div>
+        </div>
+        
+            @RenderBody()
+        
+    </main>
+    <footer class="">
+        <div class="company">
+            <div class="container">
+            <ul class="company_list">
+                <li class="company_list_item"><a href="" class="company_list_item_link">ДОСТАВКА</a></li>
+                <li class="company_list_item"><a href="" class="company_list_item_link">ГАРАНТИЯ</a></li>
+                <li class="company_list_item"><a href="" class="company_list_item_link">О КОМПАНИИ</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="gbstore">
+            <div class="container">
+                <div class="container_wrapper">
+                    <ul class="store_information">
+                        <li class="store_information_item all-information"><div class="img_wraper"><img src="img/main-logo.png" alt=""></div></li>
+                        <li class="store_information_item all-information">Интернет-магазин GB Store –<br>
+                            Ваш надёжный проводник в мире современных гаджетов.</li>
+                        <li class="store_information_item all-information cl-purple">Контакты:</li>
+                        <li class="store_information_item all-information"><a href="" class="contacts"><i class="fa fa-map-marker" aria-hidden="true"></i>г. Москва ул. Барклая д.8 пав.236</a></li>
+                        <li class="store_information_item all-information"><a href="" class="contacts"><i class="fa fa-phone" aria-hidden="true"></i>+7 (495) 77 55 998</a></li>
+                        <li class="store_information_item all-information"><a href="" class="contacts"><i class="fa fa-envelope" aria-hidden="true"></i>ask@gbstore.ru</a></li>
+                        <li class="store_information_item all-information cl-purple">Мы в социальных сетях:</li>
+                        <li class="store_information_item all-information"><a href="" class="messengers"><i class="fa fa-telegram" aria-hidden="true"></i></a><a href="" class="messengers"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <ul class="categories">
+                        <li class="categories_item all-information cl-purple">Категории</li>
+                        <li class="categories_item all-information"><a href="" class="categories_item_link"> Телефоны</a></li>
+                        <li class="categories_item all-information"><a href="" class="categories_item_link"> Планшеты</a></li>
+                        <li class="categories_item all-information"><a href="" class="categories_item_link"> Ноутбуки</a></li>
+                        <li class="categories_item all-information"><a href="" class="categories_item_link"> Компьютеры</a></li>
+                        <li class="categories_item all-information"><a href="" class="categories_item_link"> Аксессуары</a></li>
+                        <li class="categories_item all-information"><a href="" class="categories_item_link">Гаджеты</a></li>
+                        <li class="categories_item all-information"><a href="" class="categories_item_link">Акустика</a></li>
+                    </ul>
+                    <ul class="personal_area">
+                        <li class="personal_area_item all-information cl-purple">Личный кабинет</li>
+                        <li class="personal_area_item all-information"><a href="" class="personal_area_item_link">Вход</a></li>
+                        <li class="personal_area_item all-information"><a href="" class="personal_area_item_link">Регистрация</a></li>
+                        <li class="personal_area_item all-information"><a href="" class="personal_area_item_link">Забыли пароль?</a></li>
+                    </ul>
+                    <ul class="requisites">
+                        <li class="requisites_item all-information cl-purple">Реквизиты</li>
+                        <li class="requisites_item all-information">Интернет-магазин "GB Store"</li>
+                        <li class="requisites_item all-information">ИП «КОРОЛЕВ ДМИТРИЙ АЛЕКСАНДРОВИЧ»</li>
+                        <li class="requisites_item all-information"><a href="">ИНН: 772161677792</a></li>
+                        <li class="requisites_item all-information">ОГРНИП: 320774600071922</li>
+                        <li class="requisites_item all-information">Фактический адрес:</li>
+                        <li class="requisites_item all-information">125373, г.Москва, Походный проезд, домовладение 3, стр.2</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
