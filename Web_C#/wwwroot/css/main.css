@@ -1,1 +1,630 @@
-a{text-decoration:none !important;color:#000}a:hover{color:#e6641e}li{list-style:none !important}*{margin:0;padding:0;font-family:Roboto}input{outline:0 !important}.container{width:1140px;margin:0 auto}header{height:140px}header .header_nav_lists{height:50px;display:flex;justify-content:space-between;align-items:center}header .header_nav_lists_item{margin-left:10px}header .header_nav_lists_item a i{color:#e6641e;margin-right:6px;font-size:20px}header .header_nav_lists_item:last-child a i{margin-right:0}header .header_nav_lists_item:hover{color:#e6641e}header .header_nav_lists_item_login{display:flex;align-items:center;justify-content:center}header .header_nav_lists_item_login i{color:#e6641e;margin-left:10px;font-size:25px}header .header_nav_lists_item_login i:hover{color:#e6641e}header .header_nav_lists_item_number{font-size:25px;color:#000;margin-right:20px}header .header_nav_lists_item_number_icon{display:flex;align-items:center}header .header_nav_lists_item_number_icon i{color:#e6641e;margin-right:5px;font-size:25px}header .header_nav_lists_section{display:flex;align-items:center}header .header_nav_lists_section a:hover{color:#e6641e}header .subtitle{height:90px;background-color:#f5f5f5}header .subtitle_wrapper{display:flex;justify-content:space-between;align-items:center;height:90px}header .subtitle_search{display:flex;justify-content:center;align-items:center}header .subtitle_search input{height:50px;padding-left:15px;color:#979797;min-width:500px;border:none;border-radius:5px 0 0 5px}header .subtitle_search button{border:none;border-radius:0 5px 5px 0;height:50px;width:60px;background-color:#e6641e;cursor:pointer;position:relative;z-index:1}header .subtitle_search button i{color:#fff;font-size:30px;z-index:3}header .subtitle_search button:hover{transition:all 0.3s;background-color:#c50b6d}header .subtitle_img{height:80px;display:flex;align-items:center;justify-content:center;width:150px;transition:0.5s all}header .subtitle_img_link_logo{height:50px}header .subtitle_img_link_logo:hover{height:60px;transition:0.5s all}header .subtitle_img_link_logo:not(:hover){transition:0.5s all}header .subtitle_car{display:block}header .subtitle_car i{display:flex;font-size:45px;color:#e6641e;position:relative;transition:0.5s all}header .subtitle_car i span{font-size:17px}header .subtitle_car i span:last-child{position:absolute;display:block;bottom:2%;right:10%;color:#000}header .subtitle_car i:hover{color:#c50b6d}header .subtitle_car i::before{margin-right:10px}main .catalog-menu-list{display:flex;justify-content:center;align-items:center;height:50px}main .catalog-menu-list-items-link{color:#000;text-transform:uppercase;font-size:18px;font-weight:400;margin:0 10px}footer .container_wrapper{display:flex;justify-content:space-between;align-content:center}footer .company{height:80px;background-color:#f5f5f5}footer .company_list{display:flex;height:80px;justify-content:center;align-items:center}footer .company_list_item{margin:0px 15px}footer .company_list_item_link{text-transform:uppercase;tab-size:22px;font-weight:400}footer .company_list_item_link:hover{color:#e6641e}footer .gbstore{padding-top:50px}footer .gbstore .all-information{margin-top:20px}footer .gbstore .store_information{width:365px}footer .gbstore .store_information_item .img_wraper{height:80px;display:flex;align-items:center;justify-content:center;width:150px;transition:0.5s all}footer .gbstore .store_information_item .img_wraper img{height:50px}footer .gbstore .store_information_item .img_wraper img:hover{height:60px;transition:0.5s all}footer .gbstore .store_information_item .img_wraper img:not(:hover){transition:0.5s all}footer .gbstore .store_information_item .messengers{display:inline-block;height:50px;width:50px;background-color:#e6641e;border-radius:5px;margin-right:15px}footer .gbstore .store_information_item .messengers i{display:flex;justify-content:center;align-items:center;height:100%;color:#fff;font-size:30px}footer .gbstore .store_information_item .contacts i{margin-right:10px;color:#e6641e}footer .gbstore .store_information_item .contacts:hover{color:#e6641e}footer .gbstore .categories{width:110px}footer .gbstore .personal_area{width:130px}footer .gbstore .requisites{width:345px}.cl-purple{color:#d34892;font-weight:500}
+/* line 2, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+a {
+  text-decoration: none !important;
+  color: #000;
+}
+
+/* line 5, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+a:hover {
+  color: #e6641e;
+}
+
+/* line 7, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+li {
+  list-style: none !important;
+}
+
+/* line 2, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration {
+  padding: 30px 0;
+}
+
+/* line 4, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_title {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+/* line 7, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_path {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 30px;
+  font-weight: 400;
+  background-color: whitesmoke;
+  margin: 20px 0 30px;
+}
+
+/* line 15, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_path span {
+  margin: 0px 15px;
+}
+
+/* line 18, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 21, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account_form {
+  position: relative;
+  width: 550px;
+}
+
+/* line 24, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account_form_group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* line 31, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account_form_group_wrapper input {
+  height: 40px;
+  padding-left: 15px;
+  border: 2px solid #979797;
+  border-radius: 5px;
+  width: 300px;
+}
+
+/* line 37, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account button {
+  width: 160px;
+  margin-left: 250px;
+  background-color: #e6641e;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  height: 45px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0px;
+}
+
+/* line 51, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account button:hover {
+  background-color: #cf500c;
+  transition: 0.5s all;
+}
+
+/* line 55, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account_why {
+  background-color: #f3f3f3;
+  padding: 20px 40px;
+  width: 415px;
+  border-radius: 8px;
+  max-height: 170px;
+}
+
+/* line 61, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account_why_title {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* line 64, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account_why_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #c50b6d;
+  height: 46px;
+  width: 145px;
+  border-radius: 5px;
+}
+
+/* line 74, ../../Web_C#/Web_C#/wwwroot/sass/_registration.sass */
+main .registration_account_why_text {
+  margin: 20px 0;
+}
+
+/* line 10, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+}
+
+/* line 14, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+input {
+  outline: 0 !important;
+}
+
+/* line 16, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+/* line 19, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header {
+  height: 140px;
+}
+
+/* line 22, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 27, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item {
+  margin-left: 10px;
+}
+
+/* line 30, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item a i {
+  color: #e6641e;
+  margin-right: 6px;
+  font-size: 20px;
+}
+
+/* line 36, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item:last-child a i {
+  margin-right: 0;
+}
+
+/* line 38, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item:hover {
+  color: #e6641e;
+}
+
+/* line 41, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item_login a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 45, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item_login a i {
+  color: #e6641e;
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+/* line 49, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item_login a i:hover {
+  color: #e6641e;
+}
+
+/* line 51, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item_number {
+  font-size: 25px;
+  color: #000;
+  margin-right: 20px;
+}
+
+/* line 55, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item_number_icon {
+  display: flex;
+  align-items: center;
+}
+
+/* line 58, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_item_number_icon i {
+  color: #e6641e;
+  margin-right: 5px;
+  font-size: 25px;
+}
+
+/* line 63, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_section {
+  display: flex;
+  align-items: center;
+}
+
+/* line 66, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .header_nav_lists_section a:hover {
+  color: #e6641e;
+}
+
+/* line 71, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle {
+  height: 90px;
+  background-color: whitesmoke;
+}
+
+/* line 74, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+/* line 79, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 83, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_search input {
+  height: 50px;
+  padding-left: 15px;
+  color: #979797;
+  min-width: 500px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+/* line 90, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_search button {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  height: 50px;
+  width: 60px;
+  background-color: #e6641e;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 99, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_search button i {
+  color: #fff;
+  font-size: 30px;
+  z-index: 3;
+}
+
+/* line 114, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_search button:hover {
+  transition: all 0.3s;
+  background-color: #c50b6d;
+}
+
+/* line 122, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_img {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  transition: 0.5s all;
+}
+
+/* line 129, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_img_link_logo {
+  height: 50px;
+}
+
+/* line 131, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_img_link_logo:hover {
+  height: 60px;
+  transition: 0.5s all;
+}
+
+/* line 134, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_img_link_logo:not(:hover) {
+  transition: 0.5s all;
+}
+
+/* line 137, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_car {
+  display: block;
+}
+
+/* line 139, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_car i {
+  display: flex;
+  font-size: 45px;
+  color: #e6641e;
+  position: relative;
+  transition: 0.5s all;
+}
+
+/* line 145, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_car i span {
+  font-size: 17px;
+}
+
+/* line 147, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_car i span:last-child {
+  position: absolute;
+  display: block;
+  bottom: 2%;
+  right: 10%;
+  color: #000;
+}
+
+/* line 153, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_car i:hover {
+  color: #c50b6d;
+}
+
+/* line 155, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+header .subtitle_car i::before {
+  margin-right: 10px;
+}
+
+/* line 159, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .catalog-menu-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+/* line 165, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .catalog-menu-list-items-link {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 10px;
+}
+
+/* line 171, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log {
+  margin: 20px 0;
+}
+
+/* line 173, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_title {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+/* line 176, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_path {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 30px;
+  margin: 20px 0;
+  font-weight: 400;
+  background-color: whitesmoke;
+}
+
+/* line 184, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_path span {
+  margin: 0px 15px;
+}
+
+/* line 187, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_account-registration {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 191, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_subtitle {
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 40px;
+}
+
+/* line 195, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_form {
+  width: 450px;
+  text-align: center;
+}
+
+/* line 198, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_form_group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* line 203, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_form_group:first-child {
+  margin-bottom: 20px;
+}
+
+/* line 207, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_form_group_wrapper input {
+  width: 300px;
+  height: 40px;
+  padding-left: 15px;
+  border: 2px solid #979797;
+  border-radius: 5px;
+}
+
+/* line 213, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_form_forgot_your_password {
+  display: inline-block;
+  margin: 16px 28px 16px 0;
+}
+
+/* line 216, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_form button {
+  background-color: #e6641e;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  width: 120px;
+  height: 37px;
+  margin: 0 auto;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -1px;
+}
+
+/* line 230, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_form button:hover {
+  background-color: #cf500c;
+  transition: 0.5s all;
+}
+
+/* line 233, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_registration {
+  background-color: #f3f3f3;
+  padding: 20px 40px;
+  width: 535px;
+  border-radius: 8px;
+}
+
+/* line 238, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_registration_title {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+/* line 241, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_registration_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #c50b6d;
+  height: 46px;
+  width: 145px;
+  border-radius: 5px;
+}
+
+/* line 251, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+main .log_registration_text {
+  margin: 20px 0;
+}
+
+/* line 258, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .container_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+/* line 262, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .company {
+  height: 80px;
+  background-color: whitesmoke;
+}
+
+/* line 265, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .company_list {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 270, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .company_list_item {
+  margin: 0px 15px;
+}
+
+/* line 272, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .company_list_item_link {
+  text-transform: uppercase;
+  tab-size: 22px;
+  font-weight: 400;
+}
+
+/* line 276, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .company_list_item_link:hover {
+  color: #e6641e;
+}
+
+/* line 278, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore {
+  padding-top: 50px;
+}
+
+/* line 280, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .all-information {
+  margin-top: 20px;
+}
+
+/* line 282, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information {
+  width: 365px;
+}
+
+/* line 285, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .img_wraper {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  transition: 0.5s all;
+}
+
+/* line 292, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .img_wraper img {
+  height: 50px;
+}
+
+/* line 294, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .img_wraper img:hover {
+  height: 60px;
+  transition: 0.5s all;
+}
+
+/* line 297, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .img_wraper img:not(:hover) {
+  transition: 0.5s all;
+}
+
+/* line 299, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .messengers {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color: #e6641e;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+/* line 306, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .messengers i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  font-size: 30px;
+}
+
+/* line 315, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .contacts i {
+  margin-right: 10px;
+  color: #e6641e;
+}
+
+/* line 318, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .store_information_item .contacts:hover {
+  color: #e6641e;
+}
+
+/* line 320, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .categories {
+  width: 110px;
+}
+
+/* line 322, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .personal_area {
+  width: 130px;
+}
+
+/* line 324, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+footer .gbstore .requisites {
+  width: 345px;
+}
+
+/* line 326, ../../Web_C#/Web_C#/wwwroot/sass/main.sass */
+.cl-purple {
+  color: #d34892;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,53 @@
+﻿<section class="registration">
+    <div class="container">
+        <h2 class="registration_title">Регистрация</h2>
+        <div class="registration_path"><a asp-action="@nameof(Home.Index)" asp-controller="@nameof(Home)">Главная</a><span>/</span>Регистрация</div>
+        <div class="registration_account">
+                <form action="" class="registration_account_form">
+                    <div class="registration_account_form_group">
+                        <label for="name">Name*</label>
+                        <div class="registration_account_form_group_wrapper">
+                            <input type="text" name="name">
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="registration_account_form_group">
+                        <label for="email">Email*</label>
+                        <div class="registration_account_form_group_wrapper">
+                            <input type="email" name="email">
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="registration_account_form_group">
+                        <label for="Phone">Контактный телефон:*</label>
+                        <div class="registration_account_form_group_wrapper">
+                            <input type="tel" placeholder="+7(999)9999999" name="phone">
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="registration_account_form_group">
+                        <label for="password">Пароль*</label>
+                        <div class="registration_account_form_group_wrapper">
+                            <input type="password" name="password">
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                                
+                                
+                    </div>
+                    <div class="registration_account_form_group">
+                        <label for="confirmPassword">Пароль (ещё раз):*</label>
+                        <div class="registration_account_form_group_wrapper">
+                            <input type="password" name="confirmPassword">
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <button>Зарегестрироваться</button>
+                </form>
+                <div class="registration_account_why">
+                    <div class="registration_account_why_title">Зачем нужна регистрация?</div>
+                    <div class="registration_account_why_text">Зарегистрировавшись на сайте Вы сможете получить личный кабинет, что позволит Вам отслеживать историю заказов, быстрее оформлять заказы в нашем Интернет магазине, так как вся информация о Вас будет доступна в нашем магазине и ее не нужно будет повторно вносить</div>
+                </div>
+        </div>
+                
+    </div>
+</section>

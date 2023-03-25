@@ -1,4 +1,5 @@
 ﻿
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,7 @@
                                 <a href="" class="header_nav_lists_item_number_icon"><i class="fa fa-phone" aria-hidden="true"></i>Обратный звонок</a>
                         </div>
                         <ul class="header_nav_lists_section">
-                            <li class="header_nav_lists_item_login"><a href="">Вход</a><i class="fa fa-sign-in" aria-hidden="true"></i></li>
+                            <li class="header_nav_lists_item_login"><a asp-action="@nameof(Home.Login)" asp-controller="@nameof(Home)">Вход<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -41,7 +42,7 @@
             <div class="subtitle">
                 <div class="container">
                     <div class="subtitle_wrapper">
-                        <div class="subtitle_img"><a href="" class="subtitle_img_link"><img src="img/main-logo.png" alt="" class="subtitle_img_link_logo"></a></div>
+                        <div class="subtitle_img"><a asp-action="@nameof(Home.Index)" asp-controller="@nameof(Home)" class="subtitle_img_link"><img src="~/img/main-logo.png" alt="" class="subtitle_img_link_logo"></a></div>
                         <form action="" class="subtitle_search">
                             <input type="search" name="query" placeholder="Поиск товара по каталогу...">
                             <button><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -88,7 +89,7 @@
             <div class="container">
                 <div class="container_wrapper">
                     <ul class="store_information">
-                        <li class="store_information_item all-information"><div class="img_wraper"><img src="img/main-logo.png" alt=""></div></li>
+                        <li class="store_information_item all-information"><a asp-action="@nameof(Home.Index)" asp-controller="@nameof(Home)" class="img_wraper"><img  src="~/img/main-logo.png" alt=""></a></li>
                         <li class="store_information_item all-information">Интернет-магазин GB Store –<br>
                             Ваш надёжный проводник в мире современных гаджетов.</li>
                         <li class="store_information_item all-information cl-purple">Контакты:</li>

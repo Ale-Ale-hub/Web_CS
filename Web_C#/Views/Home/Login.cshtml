@@ -1,0 +1,37 @@
+﻿
+<section class="log">
+    <div class="container">
+        <h2 class="log_title">Авторизация</h2>
+        <div class="log_path"><a asp-action="@nameof(Home.Index)" asp-controller="@nameof(Home)">Главная</a><span>/</span>Авторизация</div>
+        <div class="log_account-registration">
+            <div class="log_account">
+                <div class="log_subtitle">У меня уже есть учетная запись</div>
+                <form action="" class="log_form">
+                    <div class="log_form_group">
+                        <label for="email">Email*</label>
+                        <div class="log_form_group_wrapper">
+                            <input type="email" name="email">
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="log_form_group">
+                        <label for="password">Password*</label>
+                        <div class="log_form_group_wrapper">
+                            <input type="password" name="password">
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                                
+                    </div>
+                    <a href="" class="log_form_forgot_your_password">Забыли пароль?</a>
+                    <button>вход</button>
+                </form>
+            </div>
+            <div class="log_registration">
+                <div class="log_registration_title">Я - новый покупатель</div>
+                <div class="log_registration_text">Регистрация на сайте позволит быстро оформлять заказы, управлять заказами через личный кабинет, в полном объеме использовать возможности нашего интернет магазина.</div>
+                <a asp-action="@nameof(Home.Registration)" asp-controller="@nameof(Home)" class="log_registration_button">регистрация</a>
+            </div>
+        </div>
+                
+    </div>
+</section>

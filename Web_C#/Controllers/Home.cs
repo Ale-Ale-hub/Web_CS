@@ -2,11 +2,11 @@
 
 namespace Web_C_.Controllers
 {
-    public class HomeController : Controller
+    public class Home : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<Home> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public Home(ILogger<Home> logger)
         {
             _logger = logger;
         }
@@ -15,8 +15,15 @@ namespace Web_C_.Controllers
         {
             return View();
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Registration()
+        {
+            return View();
+        }
 
-        
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

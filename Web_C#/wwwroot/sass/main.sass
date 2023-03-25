@@ -6,7 +6,7 @@ a
         color: $main-color
 li
     list-style: none !important
-
+@import _registration
 *
     margin: 0
     padding: 0
@@ -38,15 +38,16 @@ header
                 &:hover
                     color: $main-color
             &_item_login
-                display: flex
-                align-items: center
-                justify-content: center
-                i
-                    color: $main-color
-                    margin-left: 10px
-                    font-size: 25px
-                    &:hover
+                a
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    i
                         color: $main-color
+                        margin-left: 10px
+                        font-size: 25px
+                        &:hover
+                            color: $main-color
             &_item_number
                 font-size: 25px
                 color: #000
@@ -167,6 +168,92 @@ main
                     font-size: 18px
                     font-weight: 400
                     margin: 0 10px
+    .log
+        margin: 20px 0
+        &_title
+            font-size: 30px
+            font-weight: 400
+        &_path
+            display: flex
+            align-items: center
+            padding-left: 20px
+            height: 30px
+            margin: 20px 0
+            font-weight: 400
+            background-color: rgb(245,245,245)
+            span
+                margin: 0px 15px
+
+        &_account-registration
+            display: flex
+            justify-content: space-between
+            align-items: center
+        &_subtitle
+            font-size: 26px
+            font-weight: 400
+            margin-top: 40px
+        &_form
+            width: 450px
+            text-align: center
+            &_group
+                display: flex
+                align-items: center
+                justify-content: space-between
+                margin-top: 20px
+                &:first-child
+                    margin-bottom: 20px
+                &_wrapper
+                    
+                    input
+                        width: 300px
+                        height: 40px
+                        padding-left: 15px
+                        border: 2px solid  rgb(151,151,151)
+                        border-radius: 5px
+            &_forgot_your_password
+                display: inline-block
+                margin: 16px 28px 16px 0
+            button
+                background-color: $main-color
+                display: block
+                border: none
+                border-radius: 5px
+                color: #fff
+                width: 120px
+                height: 37px
+                margin: 0 auto
+                cursor: pointer
+                text-transform: uppercase
+                font-weight: 300
+                font-size: 22px
+                letter-spacing: -1px
+                &:hover
+                    background-color: rgb(207, 80, 12)
+                    transition: 0.5s all
+        &_registration
+            background-color: rgb(243,243,243)
+            padding: 20px 40px
+            width: 535px
+            border-radius: 8px
+            &_title
+                font-weight: 400
+                font-size: 25px
+            &_button
+                display: flex
+                justify-content: center
+                align-items: center
+                color: #fff
+                text-transform: uppercase
+                background-color: rgb(197,11,109)
+                height: 46px
+                width: 145px  
+                border-radius: 5px
+            &_text
+                margin: 20px 0
+
+
+                    
+
 footer
     .container_wrapper
         display: flex
