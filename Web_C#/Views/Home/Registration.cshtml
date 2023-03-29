@@ -1,44 +1,67 @@
-﻿<section class="registration">
+﻿@using Web_C_.Models;
+@model Web_C_.Models.RegistrationModel;
+
+<section class="registration">
     <div class="container">
         <h2 class="registration_title">Регистрация</h2>
         <div class="registration_path"><a asp-action="@nameof(Home.Index)" asp-controller="@nameof(Home)">Главная</a><span>/</span>Регистрация</div>
         <div class="registration_account">
-                <form action="" class="registration_account_form">
+                <form asp-action="@nameof(Home.Registration)" asp-controller="@nameof(Home)" method="post" class="registration_account_form">
                     <div class="registration_account_form_group">
-                        <label for="name">Name*</label>
+                        <label asp-for="Name"></label>
                         <div class="registration_account_form_group_wrapper">
-                            <input type="text" name="name">
-                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                            <input asp-for="Name" name="Name">
+                            <span asp-validation-for="Name" class="text-danger">
+
+                            
+                            @if((ViewData["userVerification"] as UserVerificationModel).name)
+                            {
+                                @:Имя: "@(Model.Name)" ползователя уже существует
+                            }
+
+                            </span>
                         </div>
                     </div>
                     <div class="registration_account_form_group">
-                        <label for="email">Email*</label>
+                        <label asp-for="Email"></label>
                         <div class="registration_account_form_group_wrapper">
-                            <input type="email" name="email">
-                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                            <input asp-for="Email" name="Email">
+                            <span asp-validation-for="Email" class="text-danger">
+
+                            @if((ViewData["userVerification"] as UserVerificationModel).email)
+                            {
+                                @:Почта: "@(Model.Email)" уже зарегестрирована
+                            }
+
+                            </span>
                         </div>
                     </div>
                     <div class="registration_account_form_group">
-                        <label for="Phone">Контактный телефон:*</label>
+                        <label asp-for="Phone"></label>
                         <div class="registration_account_form_group_wrapper">
-                            <input type="tel" placeholder="+7(999)9999999" name="phone">
-                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                            <input asp-for="Phone" placeholder="+7(999)9999999" name="Phone">
+                            <span asp-validation-for="Phone" class="text-danger">
+                            @if((ViewData["userVerification"] as UserVerificationModel).phone)
+                            {
+                                @:Телефон: "@(Model.Phone)" уже зарегестрирован
+                            }
+                            </span>
                         </div>
                     </div>
                     <div class="registration_account_form_group">
-                        <label for="password">Пароль*</label>
+                        <label asp-for="Password"></label>
                         <div class="registration_account_form_group_wrapper">
-                            <input type="password" name="password">
-                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                            <input asp-for="Password" name="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                                 
                                 
                     </div>
                     <div class="registration_account_form_group">
-                        <label for="confirmPassword">Пароль (ещё раз):*</label>
+                        <label asp-for="ConfirmPassword"></label>
                         <div class="registration_account_form_group_wrapper">
-                            <input type="password" name="confirmPassword">
-                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                            <input asp-for="ConfirmPassword" name="ConfirmPassword">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
                     </div>
                     <button>Зарегестрироваться</button>

@@ -61,7 +61,10 @@
         <div class="catalog-menu">
             <div class="container">
                 <ul class="catalog-menu-list">
-                    <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">телефоны</a></li>
+                    <li class="catalog-menu-list-items">
+                        <a asp-action="@nameof(Categories.Phone)"
+                        asp-controller="@nameof(Categories)" 
+                        class="catalog-menu-list-items-link">телефоны</a></li>
                     <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">планшеты</a></li>
                     <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">ноутбуки</a></li>
                     <li class="catalog-menu-list-items"><a href="" class="catalog-menu-list-items-link">компьютеры</a></li>

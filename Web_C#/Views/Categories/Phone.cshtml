@@ -1,0 +1,75 @@
+﻿@using Web_C_.Models;
+@model List<PhoneModel>;
+
+<section class="catalog">
+  <div class="container">
+    <div class="catalog_filters">
+        <div class="catalog_filters_selection">фильтры товаров<span>ct</span></div>
+        <div class="catalog_filters_sorting">
+            <div class="catalog_filters_sorting_wrapper">
+                <div class="catalog_filters_sorting_wrapper_type">Сортировка:</div>
+                <a href="">По названию</a>
+                <a href="">По цене</a>
+                <a href="">По новизне</a>
+                <a href="">По рейтингу</a>
+            </div>
+            <div class="catalog_filters_sorting_count">Найдено:</div>
+                    
+        </div>
+    </div>
+    <div class="catalog_sorted_elements">
+                    
+        @foreach (var itemPhone in Model)
+         {
+        <div class="catalog_sorted_elements_item">
+            <div class="item_stars hidden">
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+            </div>
+            <img src="~/img/tel/tel_@(itemPhone.Id).jpg" alt="" class="catalog_sorted_elements_item_img">
+            <div class="catalog_sorted_elements_item_name">@(itemPhone.Name)</div>
+            <a href="" class="item_change_link hidden">подробнее</a>
+            <div class="change_compare_like hidden">
+                <div class="compare"><a href=""><i class="fa fa-balance-scale" aria-hidden="true"></i> Сравнить</a></div>
+                <div class="like"><a href=""><i class="fa fa-heart" aria-hidden="true"></i> Отложить</a></div>
+            </div>
+            <div class="change_vendor_code hidden">
+                <div class="vendor_code">Артикул:</div>
+                <div class="number">@(itemPhone.Id)</div>
+            </div>
+            <div class="item_change_availability hidden">
+                <div class="availability">Наличие:</div>
+                        @if (itemPhone.Have)
+                        {
+                            <div class="availability_have">Ести в наличии</div>
+                        }else{
+                            <div class="availability_have col-red">Нет в наличии</div>
+                        }
+                        
+                @*<div class="availability_have" color="@if(itenPhone.Have){@("red")}else{@("grean")}" >Ести в наличии</div>*@
+            </div>
+                        
+            <hr>
+            <div class="catalog_sorted_elements_item_price">
+                <div class="price_text">Цена:</div>
+                <div class="price_number">@itemPhone.Price руб.</div>
+            </div>
+            <form class="form_buy" asp-action="@nameof(Order.AllCar)" asp-controller="@nameof(Order)" method="post">
+            <input type="hidden" name="Id" value="@itemPhone.Id">
+            <button class="buy hidden">купить</button>
+            </form>
+        </div>
+
+
+
+                
+         }
+    </div>
+  </div>
+</section>
+@section Scripts{
+    <script src="~/js/catalogItem.js"></script>
+}

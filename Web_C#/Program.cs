@@ -1,3 +1,7 @@
+using Web_C_.Controllers;
+using Web_C_.Models;
+using Web_C_.Models.order;
+
 namespace Web_C_
 {
     public class Program
@@ -6,8 +10,12 @@ namespace Web_C_
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            
-            builder.Services.AddControllersWithViews();
+            IServiceCollection services = builder.Services;
+            services.AddControllersWithViews();
+            services.AddSingleton<UserVerificationModel>();
+            services.AddSingleton<PhoneModel>();
+            services.AddSingleton<Car>();
+
 
             var app = builder.Build();
 

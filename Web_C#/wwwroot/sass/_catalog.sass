@@ -1,0 +1,138 @@
+
+main
+    .catalog
+        &_filters
+            display: flex
+            justify-content: space-between
+            align-items: center
+            font-size: 16px
+            height: 53px
+            margin-bottom: 20px
+            &_selection
+                text-transform: uppercase
+                color: $main-color
+                width: 300px
+                padding: 0px 15px 0px 25px
+                height: 100%
+                display: flex
+                align-items: center
+                justify-content: space-between
+                background-color: rgb(245,245,245)
+                cursor: pointer
+            &_sorting
+                display: flex
+                justify-content: space-between
+                align-items: center
+                width: calc( (1140px - 330px) - 20px )
+                border-top: 2px solid rgb(226,226,226)
+                border-bottom: 2px solid rgb(226,226,226)
+                height: 100%
+                &_wrapper
+                    display: flex
+                    align-items: center
+
+                    a
+                        display: 
+                        margin-left: 20px
+                    &_type
+        &_sorted_elements
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+            flex-wrap: wrap
+            padding: 20px 0
+            &_item
+                border-radius: 5px
+                width: 275px
+                text-align: center
+                position: relative
+                padding: 20px 5px
+                min-height: 375px
+
+                &_img
+                    display: block
+                    margin: 0 auto
+                    max-height: 244px
+                &_name
+                    margin-top: 15px
+                    min-height: 40px
+                hr
+                    margin: 14px auto
+                    width: 95%
+                    border: 0
+                    border-top: 2px solid rgb(227,227,227)
+                
+                &_price
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    .price_number
+                        font-size: 20px
+                        color: $main-color
+                    .price_text
+                        font-size: 17px
+.hidden
+    display: none !important
+main
+    .catalog
+        &_sorted_elements
+            .item_change
+                position: relative
+                box-shadow: 0 0 7px 3px rgba(198, 192, 192, 0.5);
+                background: rgba(255, 255, 255, 0.9)
+                border-top: 3px solid $main-color
+                .item_stars
+                    margin: 20px 0
+                    i
+                        margin: 0 5px
+                        color: $main-color
+                .item_name_change
+                    a
+                        font-size: 17px
+                .item_change_link
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    margin: 25px auto
+                    background-color: rgb(197,11,109)
+                    color: #fff
+                    width: 120px
+                    height: 25px
+                    border-radius: 3px
+                    text-transform: uppercase
+                .change_compare_like
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    .compare
+                        margin-right: 10px
+                .change_vendor_code
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    margin: 15px 0
+                .item_change_availability
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    .availability_have
+                        color: #00FF00
+            
+                .buy
+                    width: 95%
+                    border: none 
+                    height: 40px
+                    color: #fff
+                    background-color: $main-color
+                    text-transform: uppercase
+                    font-size: 20px
+                    letter-spacing: 0px
+                    border-radius: 4px
+                    margin-top: 15px 
+                    cursor: pointer
+                .item_img_change
+                    position: absolute
+                    left: 50%
+                    top: 20px
+                    transform: translateX(-50%)
+                    z-index: -1
