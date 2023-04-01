@@ -1,0 +1,52 @@
+﻿@using Web_C_.Models.Order;
+@model Web_C_.Models.Order.Car;
+<section class="cart">
+    <div class="container">
+        <h2>Корзина</h2>
+        <div class="cart_description_wrapper">
+            <div class="">Товар</div>
+            <ul class="cart_description">
+                <li class="cart_description_item">Цена за ед.</li>
+                <li class="cart_description_item">Количество</li>
+                <li class="cart_description_item">Стоимость</li>
+                <a class="cart_description_item cross"><span href="">&#9587</span></a>
+            </ul>
+        </div>
+        @if (Context.Session.TryGetCart(out Cart cart))
+            {
+            foreach (var product in Model.products)
+            {
+                <div class="cart_product">
+                    <div class="cart_product_width50">
+                        <img src="~/img/tel/tel_@(product.ProductItem.Id).jpg" alt="" class="cart_product_img">
+                        <a href="" class="cart_product_name">@product.ProductItem.Name</a>
+                    </div>
+                    <div class="cart_product_price_piece">@product.ProductItem.Price руб.</div>
+                    <div class="cart_product_total">
+                        <button class="cart_product_total_minus">-</button>
+                        <div class="cart_product_total_count">@product.TotalCount</div>
+                        <button class="cart_product_total_plus">+</button>
+                    </div>
+                    <div class="cart_product_price_total">@product.TotalPrice руб.</div>
+                    <button class="cart_product_delete cross"><span href="">&#9587</span></button>
+                </div>
+                }
+                <div class="cart_total-price">
+                    Итого:@Model.TotalPrice руб.
+                </div>
+                <div class="cart_checkout">
+                    <button class="cart_checkout_fast btn">быстрый заказ</button>
+                    <a class="cart_checkout_full btn">оформить</a>
+                </div>
+
+            
+
+            }else
+            {
+                <h2>Корзина пустая</h2>
+            }
+        
+    </div>
+
+</section>
+

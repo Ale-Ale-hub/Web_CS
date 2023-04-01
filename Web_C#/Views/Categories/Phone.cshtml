@@ -57,7 +57,7 @@
                 <div class="price_text">Цена:</div>
                 <div class="price_number">@itemPhone.Price руб.</div>
             </div>
-            <form class="form_buy" asp-action="@nameof(Order.AllCar)" asp-controller="@nameof(Order)" method="post">
+            <form class="form_buy" asp-action="@nameof(Order.AddItem)" asp-controller="@nameof(Order)" method="post">
             <input type="hidden" name="Id" value="@itemPhone.Id">
             <button class="buy hidden">купить</button>
             </form>

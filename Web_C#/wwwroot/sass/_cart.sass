@@ -1,0 +1,128 @@
+.cross
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background-color: $main-color
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    cursor: pointer
+    span
+        position: absolute
+        right: 50%
+        transform: translate(50%,-50%)
+        top: 50%
+        color: #fff
+        font-size: 15px
+        font-weight: 900
+main
+    .cart
+        h2
+            font-size: 25px
+        &_description_wrapper
+            display: flex
+            justify-content: space-between
+            align-items: center
+            font-size: 20px
+            margin: 20px 0
+        &_description
+            display: flex
+            justify-content: flex-end
+            align-items: center
+
+            &_item
+                margin-right: 55px
+                &:last-child
+                    margin-right: 0
+
+                
+
+
+        &_product
+            display: flex
+            justify-content: space-between
+            align-items: center
+            border-top: 2px solid rgb(151,151,151)
+            border-bottom: 2px solid rgb(151,151,151)
+            padding: 10px 0
+            &_width50
+                width: 50%
+                display: flex
+                justify-content: space-between
+                align-items: center
+            &_img
+                height: 70px
+            &_name
+                font-size: 18px
+                display: block
+                margin: 0 auto
+            &_price_piece
+                font-size: 20px
+            &_price_total
+                font-size: 20px
+
+            &_total
+                display: flex
+                justify-content: center
+                align-items: center
+                font-size: 20px
+                &_minus
+                    border: none
+                    height: 45px
+                    border-radius: 3px 0 0 3px
+                    background-color: rgb(245,245,245)
+                    width: 30px
+                    font-size: 25px
+                    cursor: pointer
+                &_count
+                    border: none
+                    height: 45px
+                    background-color: rgb(245,245,245)
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    width: 100px
+                &_plus
+                    border: none
+                    height: 45px
+                    border-radius: 0 3px 3px 0
+                    background-color: rgb(245,245,245)
+                    width: 30px
+                    font-size: 30px
+                    cursor: pointer
+            &_delete
+                border: none
+        &_total-price
+            display: flex
+            justify-content: flex-end
+            align-items: center
+            height: 80px
+            border-top: 2px solid rgb(230,231,232)
+            border-bottom: 2px solid rgb(230,231,232)
+            font-size: 25px
+            margin: 20px 0
+            background-color: rgb(243,243,243)
+        &_checkout
+            display: flex
+            justify-content: flex-end
+            align-items: center
+            &_full
+                display: flex
+                justify-content: center
+                align-items: center
+                background-color: $main-color
+                &:hover
+                    color: #fff
+            &_fast
+                margin-right: 20px
+                background-color: rgb(197,11,109)
+.btn
+    width: 140px
+    height: 45px
+    color: #fff
+    text-transform: uppercase
+    border: none
+    border-radius: 5px
+    font-size: 16px
+    cursor: pointer

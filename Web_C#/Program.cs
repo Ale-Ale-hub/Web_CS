@@ -1,6 +1,7 @@
 using Web_C_.Controllers;
+using Web_C_.Infrastructure;
 using Web_C_.Models;
-using Web_C_.Models.order;
+using Web_C_.Models.Order;
 
 namespace Web_C_
 {
@@ -13,8 +14,14 @@ namespace Web_C_
             IServiceCollection services = builder.Services;
             services.AddControllersWithViews();
             services.AddSingleton<UserVerificationModel>();
-            services.AddSingleton<PhoneModel>();
-            services.AddSingleton<Car>();
+            services.AddSingleton<OrderRepository>();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
 
             var app = builder.Build();
@@ -29,7 +36,7 @@ namespace Web_C_
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
