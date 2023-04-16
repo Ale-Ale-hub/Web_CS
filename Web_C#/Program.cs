@@ -17,7 +17,7 @@ namespace Web_C_
             services.AddSingleton<IUserBL, UserModel>();
             services.AddSingleton<IProductBL, ProductBL>();
             services.AddSingleton< IUserDAL, UserDAL >();
-            services.AddSingleton<SearchProductsDAL>();
+            services.AddSingleton<ProductsDAL>();
 
             services.AddSingleton<OrderRepository>();
             services.AddDistributedMemoryCache();

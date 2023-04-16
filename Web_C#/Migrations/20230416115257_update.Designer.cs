@@ -11,8 +11,8 @@ using Web_C_.Database;
 namespace Web_C_.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20230414052308_v4")]
-    partial class v4
+    [Migration("20230416115257_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

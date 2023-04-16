@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Web_C_.DAL.Configuration;
 using Web_C_.DAL.Model.TypeProducts;
 using Web_C_.Database.Data;
 
@@ -18,21 +19,9 @@ namespace Web_C_.Database
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new class);
-            modelBuilder.Entity<UserDto>()
-                        .HasAlternateKey(u => new {u.Email, u.Phone });
-            modelBuilder.Entity<UserDto>()
-                        .Property(u => u.Phone).HasMaxLength(12).IsRequired();
-            modelBuilder.Entity<UserDto>().Property(u =>  u.Name).HasMaxLength(20).IsRequired();
-            modelBuilder.Entity<UserDto>().Property(u => u.Password ).IsRequired();
-            modelBuilder.Entity<UserDto>().Property(u => u.Salt).IsRequired();
-            modelBuilder.Entity<UserDto>().Property(u => u.Email ).HasMaxLength(40).IsRequired();
-
-
-            modelBuilder.Entity<ProductDto>().HasAlternateKey(u => new { u.Price, u.Name, u.Amount });
-            modelBuilder.Entity<ProductDto>().Property(u => u.Price).IsRequired();
-            modelBuilder.Entity<ProductDto>().Property(u => u.Name).IsRequired();
-            modelBuilder.Entity<ProductDto>().Property(u => u.Amount).IsRequired();
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            
 
             modelBuilder.Entity<PhoneDto>().HasData(new[]
             {

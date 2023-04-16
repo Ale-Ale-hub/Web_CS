@@ -1,5 +1,7 @@
 ﻿@using Web_C_.BL.Implementations.Order;
-
+@{
+    ViewData["Title"] = "Корзина";
+}
 <section class="cart">
     <div class="container">
         @if (Context.Session.TryGetCart(out Cart cart) && Model != null)

@@ -7,9 +7,9 @@ namespace Web_C_.BL.Implementations
 {
     public class ProductBL : IProductBL
     {
-        private readonly SearchProductsDAL productDAL;
+        private readonly ProductsDAL productDAL;
 
-        public ProductBL(SearchProductsDAL productDAL)
+        public ProductBL(ProductsDAL productDAL)
         {
             this.productDAL = productDAL;
         }

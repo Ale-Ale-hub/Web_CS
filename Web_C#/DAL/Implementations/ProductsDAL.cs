@@ -12,7 +12,7 @@ using Web_C_.Infrastructure;
 
 namespace Web_C_.DAL.Implementations
 {
-    public class SearchProductsDAL : IProductDAL, IProductPhoneDAL
+    public class ProductsDAL : IProductDAL, IProductPhoneDAL
     {
         public async Task<ProductDto> GetProductIdAsync(int Id)
         {

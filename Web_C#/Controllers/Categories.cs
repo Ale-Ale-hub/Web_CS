@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using Web_C_.BL.Implementations.Order;
 using Web_C_.BL.Interfaces;
 using Web_C_.DAL.Implementations;
@@ -19,7 +20,7 @@ namespace Web_C_.Controllers
         }
         public IActionResult Phone()
         {
-            Request.Headers["Referer"] = HttpContext.Request.GetEncodedUrl();
+            
 
             return View("Result", productBL.GetPhonesAsync().Result);
 
@@ -27,7 +28,7 @@ namespace Web_C_.Controllers
         [HttpPost]
         public IActionResult Result(string query) 
         {
-
+            
             return View(productBL.GetProductsAsync(query).Result);
         }
         //public IActionResult SortByName()

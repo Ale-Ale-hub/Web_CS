@@ -49,7 +49,7 @@ namespace Web_C_.Controllers
                 };
             }
             HttpContext.Session.Set(cart);
-            return Redirect(Request.Headers["Referer"].ToString());
+            return RedirectToAction(nameof(Order.Cart));
         }
         public IActionResult DeleteProductItem(int Id, int count = 1)
         {
@@ -67,7 +67,7 @@ namespace Web_C_.Controllers
 
             }
 
-            return Redirect(Request.Headers["Referer"].ToString());
+            return RedirectToAction(nameof(Order.Cart));
 
         }
         [HttpGet]
