@@ -1,5 +1,7 @@
-﻿@using Web_C_.Models;
-@model Web_C_.Models.RegistrationModel;
+﻿@using Web_C_.BL.Implementations;
+@using Web_C_.ModelsView;
+
+@model RegistrationModel;
 
 <section class="registration">
     <div class="container">
@@ -13,12 +15,6 @@
                             <input asp-for="Name" name="Name">
                             <span asp-validation-for="Name" class="text-danger">
 
-                            
-                            @if((ViewData["userVerification"] as UserVerificationModel).name)
-                            {
-                                @:Имя: "@(Model.Name)" ползователя уже существует
-                            }
-
                             </span>
                         </div>
                     </div>
@@ -28,7 +24,7 @@
                             <input asp-for="Email" name="Email">
                             <span asp-validation-for="Email" class="text-danger">
 
-                            @if((ViewData["userVerification"] as UserVerificationModel).email)
+                            @if((ViewData["UserVerification"] as UserVerificationViewModel).Email)
                             {
                                 @:Почта: "@(Model.Email)" уже зарегестрирована
                             }
@@ -41,7 +37,7 @@
                         <div class="registration_account_form_group_wrapper">
                             <input asp-for="Phone" placeholder="+7(999)9999999" name="Phone">
                             <span asp-validation-for="Phone" class="text-danger">
-                            @if((ViewData["userVerification"] as UserVerificationModel).phone)
+                            @if((ViewData["UserVerification"] as UserVerificationViewModel).Phone)
                             {
                                 @:Телефон: "@(Model.Phone)" уже зарегестрирован
                             }

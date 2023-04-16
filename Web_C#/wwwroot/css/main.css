@@ -196,7 +196,7 @@ main .catalog_sorted_elements_item {
   width: 275px;
   text-align: center;
   position: relative;
-  padding: 20px 5px;
+  padding: 20px 5px 0;
   min-height: 400px;
 }
 
@@ -316,6 +316,9 @@ main .catalog_sorted_elements .item_change .item_change_availability .availabili
 
 /* line 121, ../../Web_C#/Web_C#/wwwroot/sass/_catalog.sass */
 main .catalog_sorted_elements .item_change .buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 95%;
   border: none;
   height: 40px;
@@ -326,10 +329,9 @@ main .catalog_sorted_elements .item_change .buy {
   letter-spacing: 0px;
   border-radius: 4px;
   margin-top: 15px;
-  cursor: pointer;
 }
 
-/* line 133, ../../Web_C#/Web_C#/wwwroot/sass/_catalog.sass */
+/* line 135, ../../Web_C#/Web_C#/wwwroot/sass/_catalog.sass */
 main .catalog_sorted_elements .item_change .item_img_change {
   position: absolute;
   left: 50%;

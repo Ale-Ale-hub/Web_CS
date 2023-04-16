@@ -1,7 +1,8 @@
-using Web_C_.Controllers;
+using Web_C_.BL.Implementations;
+using Web_C_.BL.Interfaces;
+using Web_C_.DAL.Implementations;
+using Web_C_.DAL.Interfaces;
 using Web_C_.Infrastructure;
-using Web_C_.Models;
-using Web_C_.Models.Order;
 
 namespace Web_C_
 {
@@ -13,7 +14,11 @@ namespace Web_C_
 
             IServiceCollection services = builder.Services;
             services.AddControllersWithViews();
-            services.AddSingleton<UserVerificationModel>();
+            services.AddSingleton<IUserBL, UserModel>();
+            services.AddSingleton<IProductBL, ProductBL>();
+            services.AddSingleton< IUserDAL, UserDAL >();
+            services.AddSingleton<SearchProductsDAL>();
+
             services.AddSingleton<OrderRepository>();
             services.AddDistributedMemoryCache();
             services.AddSession(options =>

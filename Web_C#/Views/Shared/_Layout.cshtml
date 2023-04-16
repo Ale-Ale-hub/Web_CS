@@ -1,5 +1,4 @@
-﻿@using Web_C_.Models.Order;
-
+﻿@using Web_C_.BL.Implementations.Order;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +43,7 @@
                 <div class="container">
                     <div class="subtitle_wrapper">
                         <div class="subtitle_img"><a asp-action="@nameof(Home.Index)" asp-controller="@nameof(Home)" class="subtitle_img_link"><img src="~/img/main-logo.png" alt="" class="subtitle_img_link_logo"></a></div>
-                        <form action="" class="subtitle_search">
+                        <form asp-action="@nameof(Categories.Result)" asp-controller="@nameof(Categories)" class="subtitle_search">
                             <input type="search" name="query" placeholder="Поиск товара по каталогу...">
                             <button><i class="fa fa-search" aria-hidden="true"></i></button>
                         </form>

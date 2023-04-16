@@ -6,7 +6,7 @@
         <div class="log_account-registration">
             <div class="log_account">
                 <div class="log_subtitle">У меня уже есть учетная запись</div>
-                <form action="" class="log_form">
+                <form asp-action="@nameof(Home.Login)" asp-controller="@nameof(Home)" class="log_form" method="post">
                     <div class="log_form_group">
                         <label for="email">Email*</label>
                         <div class="log_form_group_wrapper">
@@ -20,8 +20,11 @@
                             <input type="password" name="password">
                             <span @*asp-validation-for=""*@ class="text-danger"></span>
                         </div>
-                                
                     </div>
+                    @if (!ViewBag.Authenticate)
+                    {
+                    <div>Вы неправильно ввели пароль или email</div>
+                    }
                     <a href="" class="log_form_forgot_your_password">Забыли пароль?</a>
                     <button>вход</button>
                 </form>

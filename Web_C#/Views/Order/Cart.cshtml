@@ -1,35 +1,36 @@
-﻿@using Web_C_.Models.Order;
-@model Web_C_.Models.Order.Car;
+﻿@using Web_C_.BL.Implementations.Order;
+
 <section class="cart">
     <div class="container">
-        <h2>Корзина</h2>
-        <div class="cart_description_wrapper">
-            <div class="">Товар</div>
-            <ul class="cart_description">
-                <li class="cart_description_item">Цена за ед.</li>
-                <li class="cart_description_item">Количество</li>
-                <li class="cart_description_item">Стоимость</li>
-                <a class="cart_description_item cross"><span href="">&#9587</span></a>
-            </ul>
-        </div>
-        @if (Context.Session.TryGetCart(out Cart cart))
+        @if (Context.Session.TryGetCart(out Cart cart) && Model != null)
             {
-            foreach (var product in Model.products)
-            {
-                <div class="cart_product">
-                    <div class="cart_product_width50">
-                        <img src="~/img/tel/tel_@(product.ProductItem.Id).jpg" alt="" class="cart_product_img">
-                        <a href="" class="cart_product_name">@product.ProductItem.Name</a>
-                    </div>
-                    <div class="cart_product_price_piece">@product.ProductItem.Price руб.</div>
-                    <div class="cart_product_total">
-                        <button class="cart_product_total_minus">-</button>
-                        <div class="cart_product_total_count">@product.TotalCount</div>
-                        <button class="cart_product_total_plus">+</button>
-                    </div>
-                    <div class="cart_product_price_total">@product.TotalPrice руб.</div>
-                    <button class="cart_product_delete cross"><span href="">&#9587</span></button>
+                <h2>Корзина</h2>
+                <div class="cart_description_wrapper">
+                    <div class="">Товар</div>
+                    <ul class="cart_description">
+                        <li class="cart_description_item">Цена за ед.</li>
+                        <li class="cart_description_item">Количество</li>
+                        <li class="cart_description_item">Стоимость</li>
+                        <a href="@Url.Action(nameof(Order.DeleteCart),nameof(Order), new {Id = Model.Id})" class="cart_description_item cross"><span href="">&#9587</span></a>
+                    </ul>
                 </div>
+        
+                foreach (var product in Model.products)
+                {
+                    <div class="cart_product">
+                        <div class="cart_product_width50">
+                            <img src="~/img/tel/tel_@(product.ProductItem.Id).jpg" alt="" class="cart_product_img">
+                            <a href="" class="cart_product_name">@product.ProductItem.Name</a>
+                        </div>
+                        <div class="cart_product_price_piece">@product.ProductItem.Price руб.</div>
+                        <div class="cart_product_total">
+                            <a href="@Url.Action(nameof(Order.DeleteProductItem),nameof(Order), new {Id = product.Id})" class="cart_product_total_minus">-</a>
+                            <div class="cart_product_total_count">@product.TotalCount</div>
+                            <a href="@Url.Action(nameof(Order.AddProductItem),nameof(Order), new {Id = product.Id})" class="cart_product_total_plus">+</a>
+                        </div>
+                        <div class="cart_product_price_total">@product.TotalPrice руб.</div>
+                        <a href="@Url.Action(nameof(Order.DeleteProduct),nameof(Order), new {Id = product.Id})" class="cart_product_delete cross"><span href="">&#9587</span></a>
+                    </div>
                 }
                 <div class="cart_total-price">
                     Итого:@Model.TotalPrice руб.
@@ -41,10 +42,10 @@
 
             
 
-            }else
-            {
+        }else
+        {
                 <h2>Корзина пустая</h2>
-            }
+        }
         
     </div>
 

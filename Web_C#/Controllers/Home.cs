@@ -1,50 +1,69 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using System.Numerics;
-using Web_C_.Models;
+using Web_C_.BL.Implementations;
+using Web_C_.BL.Interfaces;
+using Web_C_.ModelsView;
 
 namespace Web_C_.Controllers
 {
     public class Home : Controller
     {
         private readonly ILogger<Home> _logger;
-        private readonly UserVerificationModel UserVerificationModel;
+        private readonly IProductBL productBL;
+        private readonly IUserBL userBL;
 
-        public Home(ILogger<Home> logger, UserVerificationModel userVerificationModel )
+        public Home(ILogger<Home> logger, IProductBL productBL, IUserBL userBL )
         {
             _logger = logger;
-            this.UserVerificationModel = userVerificationModel;
+            this.productBL = productBL;
+            this.userBL = userBL;
         }
 
         public IActionResult Index()
         {
             return View();
         }
+        [HttpGet]
+
         public IActionResult Login()
         {
+            ViewBag.Authenticate = true;
             return View();
+        }
+        [HttpPost]
+
+        public IActionResult Login(string email, string password)
+        {
+            UserViewModel user = userBL.Authenticate(email, password);
+            if (user == null)
+            {
+                ViewBag.Authenticate = false;
+                return View();
+            }
+            ViewBag.Authenticate = true;
+            return View("SuccessfulLogin", user);
         }
         public IActionResult Registration()
         {
-            ViewData["userVerification"]= new UserVerificationModel();
+            ViewData["UserVerification"]= new UserVerificationViewModel();
             return View();
         }
         [HttpPost]
 
         public IActionResult Registration(RegistrationModel registration)
         {
-            UserVerificationModel userVerification = new UserVerificationModel();
+            UserVerificationViewModel userVerification = new UserVerificationViewModel();
 
-            if (ModelState.IsValid && !UserVerificationModel.userVerification(registration.Name, registration.Email, registration.Phone,ref userVerification))
+            if (ModelState.IsValid && !userBL.UserVerification(registration.Email, registration.Phone,ref userVerification))
             {
-                UserVerificationModel.AddingUser(registration);
-                userVerification.Save();
+                userBL.AddUser(registration);
                 return View("SuccessfulRegistration", registration);
 
             }
             else
             {
-                ViewData["userVerification"] = userVerification;
+                ViewData["UserVerification"] = userVerification;
                 return View(registration); 
             }
             

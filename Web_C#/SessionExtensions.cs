@@ -1,6 +1,6 @@
 ﻿using System.Reflection.Metadata.Ecma335;
 using System.Text;
-using Web_C_.Models.Order;
+using Web_C_.BL.Implementations.Order;
 
 namespace Web_C_
 {
@@ -20,6 +20,7 @@ namespace Web_C_
                 writer.Write(cart.TotalCount);
                 writer.Write(cart.TotalPrice);
                 session.Set(key,stream.ToArray());
+                
 
             }
 
@@ -49,7 +50,14 @@ namespace Web_C_
             return false;
             
         }
+        public static void RemoveCart(this ISession session)
+        {
+            if (session.TryGetValue(key, out byte[] value))
+            {
+                session.Remove(key);
+            }
 
+        }
 
 
 

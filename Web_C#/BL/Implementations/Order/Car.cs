@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Web_C_.Models.Order
+namespace Web_C_.BL.Implementations.Order
 {
     public class Car
     {
@@ -27,7 +27,7 @@ namespace Web_C_.Models.Order
         public Car(int id)
         {
             Id = id;
-            products = new List<Product>(); 
+            products = new List<Product>();
         }
 
         public int Id { get; }
@@ -62,7 +62,7 @@ namespace Web_C_.Models.Order
             {
 
                 if (!products.Any())
-                return 0;
+                    return 0;
                 else
                 {
                     decimal sum = 0;
@@ -73,7 +73,7 @@ namespace Web_C_.Models.Order
                     return sum;
 
                 }
-                    
+
             }
         }
         public List<Product> products;
@@ -81,7 +81,7 @@ namespace Web_C_.Models.Order
         {
             if (product == null)
                 return false;
-            
+
             if (products.FirstOrDefault(prod => prod.Id == product.Id) != null)
             {
                 products.Find(prod => prod.Id == product.Id).TotalCount += product.TotalCount;
@@ -93,13 +93,28 @@ namespace Web_C_.Models.Order
                 return true;
             }
 
-            
+
+        }
+        public bool TryGetProducrtsValue()
+        {
+            return products.Any();
+        }
+
+        public bool DeleteProductItem(Product product, int count)
+        {
+            if (products.FirstOrDefault(prod => prod.Id == product.Id) != null)
+            {
+
+                products.Find(prod => prod.Id == product.Id).TotalCount -= count;
+                return true;
+            }
+            return false;
         }
         //public bool ContainsProduct(Product product) 
         //{ 
         //    return products.Contains(product);
-        
+
         //}
     }
-    
+
 }

@@ -1,5 +1,6 @@
-﻿@using Web_C_.Models;
-@model List<PhoneModel>;
+﻿@using Web_C_.ModelsView;
+
+@model IEnumerable<PhoneViewModel>;
 
 <section class="catalog">
   <div class="container">
@@ -8,7 +9,7 @@
         <div class="catalog_filters_sorting">
             <div class="catalog_filters_sorting_wrapper">
                 <div class="catalog_filters_sorting_wrapper_type">Сортировка:</div>
-                <a href="">По названию</a>
+                <a href="@*@Url.Action(nameof(Categories.SortByName),nameof(Categories))*@">По названию</a>
                 <a href="">По цене</a>
                 <a href="">По новизне</a>
                 <a href="">По рейтингу</a>
@@ -49,7 +50,7 @@
                             <div class="availability_have col-red">Нет в наличии</div>
                         }
                         
-                @*<div class="availability_have" color="@if(itenPhone.Have){@("red")}else{@("grean")}" >Ести в наличии</div>*@
+               
             </div>
                         
             <hr>
@@ -57,10 +58,9 @@
                 <div class="price_text">Цена:</div>
                 <div class="price_number">@itemPhone.Price руб.</div>
             </div>
-            <form class="form_buy" asp-action="@nameof(Order.AddItem)" asp-controller="@nameof(Order)" method="post">
-            <input type="hidden" name="Id" value="@itemPhone.Id">
-            <button class="buy hidden">купить</button>
-            </form>
+           
+            <a class="buy hidden" href="@Url.Action(nameof(Order.AddProductItem),nameof(Order), new {Id = itemPhone.Id})">купить</a>
+
         </div>
 
 

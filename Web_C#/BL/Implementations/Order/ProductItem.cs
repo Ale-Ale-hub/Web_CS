@@ -1,4 +1,4 @@
-﻿namespace Web_C_.Models.Order
+﻿namespace Web_C_.BL.Implementations.Order
 {
     public class ProductItem
     {

@@ -1,4 +1,4 @@
-﻿using Web_C_.Models.Order;
+﻿using Web_C_.BL.Implementations.Order;
 
 namespace Web_C_.Infrastructure
 {
@@ -7,7 +7,6 @@ namespace Web_C_.Infrastructure
 
 
         public List<Car> car;
-        //public int Id { get; }
 
         public OrderRepository()
         {
@@ -22,6 +21,12 @@ namespace Web_C_.Infrastructure
             car.Add(product);
             return product;
         }
+        public bool DeleteCarItem(Car car)
+        {
+           return this.car.Remove(car);
+
+        }
+
         
         
 

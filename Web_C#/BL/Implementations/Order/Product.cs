@@ -1,34 +1,36 @@
-﻿using Web_C_.Models.Searсh;
-
-namespace Web_C_.Models.Order
+﻿
+namespace Web_C_.BL.Implementations.Order
 {
     public class Product
     {
         public int Id { get => ProductItem.Id; }
-        public int TotalCount 
-        { get => totalCount; 
-          set 
+        public int TotalCount
+        {
+            get => totalCount;
+            set
             {
-                if (value <= 0)
-                    throw new ArgumentOutOfRangeException("Count must be greater than zero.");
-                totalCount = value;
-            } 
+                if (value <= 1)
+                    totalCount = 1;
+                else
+                    totalCount = value;
+            }
         }
         public int totalCount;
-        public decimal TotalPrice 
+        public decimal TotalPrice
         {
-            get 
-            
+            get
+
             {
-                if (TotalCount <= 0) 
+                if (TotalCount <= 0)
                 {
                     return 0;
 
-                }else
-                return TotalCount * ProductItem.Price;
+                }
+                else
+                    return TotalCount * ProductItem.Price;
             }
 
-            
+
         }
         public decimal totalPrice;
 
@@ -39,7 +41,7 @@ namespace Web_C_.Models.Order
         }
         public bool AddProductItem(ProductItem product, int count)
         {
-            if (product == null || product.Id != this.Id)
+            if (product == null || product.Id != Id)
                 return false;
             TotalCount += count;
             return true;
