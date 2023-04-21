@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 namespace Web_C_.BL.Implementations
 {
 	public class AuthConstants

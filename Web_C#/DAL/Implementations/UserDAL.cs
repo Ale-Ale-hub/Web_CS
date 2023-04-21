@@ -18,7 +18,7 @@ namespace Web_C_.DAL.Implementations
             }
         }
 
-        public async Task<UserDto?> GetByUserEmail(string email)
+        public async Task<UserDto?> GetByUserEmailAsync(string email)
         {
             if (string.IsNullOrEmpty(email))
                 return null;
@@ -29,7 +29,7 @@ namespace Web_C_.DAL.Implementations
             }
 
         }
-        public async Task<UserDto?> GetByUserPhone(string phone)
+        public async Task<UserDto?> GetByUserPhoneAsync(string phone)
         {
             if (string.IsNullOrEmpty(phone))
                 return null;

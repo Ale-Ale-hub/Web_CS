@@ -48,7 +48,7 @@ namespace Web_C_.Controllers
                     TotalPrice = car.TotalPrice,
                 };
             }
-            HttpContext.Session.Set(cart);
+            HttpContext.Session.SetCart(cart);
             return RedirectToAction(nameof(Order.Cart));
         }
         public async Task<IActionResult> DeleteProductItem(int Id, int count = 1)
@@ -63,7 +63,7 @@ namespace Web_C_.Controllers
                 cart.TotalCount = car.TotalCount;
                 cart.TotalPrice = car.TotalPrice;
 
-                HttpContext.Session.Set(cart);
+                HttpContext.Session.SetCart(cart);
 
             }
 
@@ -100,7 +100,7 @@ namespace Web_C_.Controllers
 
                     cart.TotalCount = car.TotalCount;
                     cart.TotalPrice = car.TotalPrice;
-                    HttpContext.Session.Set(cart);
+                    HttpContext.Session.SetCart(cart);
 
                     return RedirectToAction(nameof(Order.Cart), nameof(Order));
                     

@@ -1,9 +1,5 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Authentication.OAuth;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Resunet.BL.Auth;
-using System.Net;
-using Web_C_.DAL.Implementations;
 using Web_C_.DAL.Interfaces;
 using Web_C_.DAL.Model;
 
@@ -78,6 +74,7 @@ namespace Web_C_.BL.Implementations
             session.UserId = userId;
             session.DbSessionId = Guid.NewGuid();
             CreateSessionCookie(session.DbSessionId);
+            
             await sessionDAL.CreateSession(session);
 
         }

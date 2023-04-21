@@ -39,6 +39,8 @@ namespace Web_C_.Controllers
                 userBL.ValidateLogin(ModelState);
                 return View();
             }
+
+            HttpContext.Session.SetUserName(user.Name);
             await sessionDb.SetUserIdAsync(userId);
 
             return View("SuccessfulLogin", user);
@@ -56,13 +58,13 @@ namespace Web_C_.Controllers
         {
             if (ModelState.IsValid)
             {
-                userBL.ValidateEmail(registration.Email, ModelState);
-                userBL.ValidatePhone(registration.Phone, ModelState);
+                await userBL.ValidateEmailAsync(registration.Email, ModelState);
+                await userBL.ValidatePhoneAsync(registration.Phone, ModelState);
                 
                 if (ModelState.IsValid)
                 {
                     UserViewModel user = await userBL.AddUserAsync(registration);
-
+                    HttpContext.Session.SetUserName(registration.Name);
                     await sessionDb.SetUserIdAsync(await userBL.GetUserIdAsync(user.Email, user.Phone));
 
                     return View("SuccessfulRegistration", registration);

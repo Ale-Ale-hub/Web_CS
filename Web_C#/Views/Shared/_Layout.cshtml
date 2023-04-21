@@ -34,13 +34,14 @@
                                 <a href="" class="header_nav_lists_item_number_icon"><i class="fa fa-phone" aria-hidden="true"></i>Обратный звонок</a>
                         </div>
                         <ul class="header_nav_lists_section">
-                        @* @if (Context.Request.Cookies.ContainsKey(AuthConstants.SessionCookieName))
+                            @{string name;}
+                         @if (Context.Session.TryUserName(out name))
                         {
-                            <li class="header_nav_lists_item_login" ><a>Привет ...<i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
-                        }else*@
-                        @*{*@
+                            <li class="header_nav_lists_item_login" ><a asp-action="@nameof(Profile.Index)" asp-controller="@nameof(Profile)">@name<i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
+                        }else
+                        {
                             <li class="header_nav_lists_item_login"><a asp-action="@nameof(Identification.Login)" asp-controller="@nameof(Identification)">Вход<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-                        @*}*@
+                        }
                         </ul>
                     </div>
                 </div>

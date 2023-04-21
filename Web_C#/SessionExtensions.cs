@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using Microsoft.IdentityModel.Tokens;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using Web_C_.BL.Implementations.Order;
 
@@ -6,20 +7,45 @@ namespace Web_C_
 {
     public static class SessionExtensions
     {
-        private const string key = "car";
-        public static void Set(this ISession session, Cart cart)
+        private const string keyCar = "car";
+        private const string keyUserName = "UserName";
+
+        public static void SetUserName(this ISession session, string name )
+        {
+            if (name.IsNullOrEmpty() && session.TryUserName(out name))
+                return;
+            session.SetString(keyUserName, name );
+
+        }
+        public static bool TryUserName(this ISession session, out string name)
+        {
+            if (session.TryGetValue(keyUserName, out byte[] value)) 
+            {
+                name = session.GetString(keyUserName)!;
+                return true;
+            }
+            name = null;
+            return false;
+        }
+        public static void RemoveUserName(this ISession session)
+        {
+            if (session.TryGetValue(keyUserName, out byte[] value))
+                session.Remove(keyUserName);
+        }
+
+
+        public static void SetCart(this ISession session, Cart cart)
         {
             if (cart == null)
-            {
                 return;
-            }
+            
             using (MemoryStream stream = new MemoryStream())
             using (BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8, true))
             {
                 writer.Write(cart.CartId);
                 writer.Write(cart.TotalCount);
                 writer.Write(cart.TotalPrice);
-                session.Set(key,stream.ToArray());
+                session.Set(keyCar,stream.ToArray());
                 
 
             }
@@ -28,7 +54,7 @@ namespace Web_C_
         public static bool TryGetCart(this ISession session, out Cart cart)
         {
 
-            if (session.TryGetValue(key, out byte[] value))
+            if (session.TryGetValue(keyCar, out byte[] value))
             {
                 using (MemoryStream stream = new MemoryStream(value))
                 using (BinaryReader reader = new BinaryReader(stream, Encoding.UTF8, true))
@@ -52,11 +78,8 @@ namespace Web_C_
         }
         public static void RemoveCart(this ISession session)
         {
-            if (session.TryGetValue(key, out byte[] value))
-            {
-                session.Remove(key);
-            }
-
+            if (session.TryGetValue(keyCar, out byte[] value))
+                session.Remove(keyCar);
         }
 
 
