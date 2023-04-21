@@ -13,7 +13,6 @@ namespace Web_C_.Controllers
         }
         public async Task<IActionResult> Index()
         {
-
             return View( await sessionDb.IsLoggedInAsync());
         }
     }
