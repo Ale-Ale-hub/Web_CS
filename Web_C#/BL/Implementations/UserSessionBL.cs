@@ -21,7 +21,7 @@ namespace Web_C_.BL.Implementations
             var userSession = await sessionDAL.GetSession(sessionID);
             if (userSession == null || userSession.UserId == null) 
                 return null;
-            UserDto user =   userDAL.GetByUserId((int)userSession.UserId);
+            UserDto? user =  await userDAL.GetByUserIdAsync((int)userSession.UserId);
             if (user ==null)
                 return null;
             return new UserViewModel(user.Name!,user.Email!, user.Phone!);

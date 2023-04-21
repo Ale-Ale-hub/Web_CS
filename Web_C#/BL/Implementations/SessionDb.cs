@@ -66,13 +66,13 @@ namespace Web_C_.BL.Implementations
             return user.UserId;
         }
 
-        public async Task<bool> IsLoggedIn()
+        public async Task<bool> IsLoggedInAsync()
         {
             var user = await this.GetSession();
             return user.UserId != null;
         }
 
-        public async Task SetUserId(int userId)
+        public async Task SetUserIdAsync(int userId)
         {
             var session = await this.GetSession();
             session.UserId = userId;

@@ -1,4 +1,5 @@
-﻿using Web_C_.DAL.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Web_C_.DAL.Interfaces;
 using Web_C_.Database;
 using Web_C_.Database.Data;
 
@@ -6,45 +7,44 @@ namespace Web_C_.DAL.Implementations
 {
     public class UserDAL : IUserDAL
     {
-        public bool AddUser(UserDto user)
+        public async Task AddUser(UserDto user)
         {
             if (user == null) 
-                return false;
+                return;
             using (StoreDbContext storeDbContext = new StoreDbContext())
             {
-                storeDbContext.Users.Add(user);
-                storeDbContext.SaveChanges();
+               await storeDbContext.Users.AddAsync(user);
+               await storeDbContext.SaveChangesAsync();
             }
-            return true;
         }
 
-        public UserDto GetByUserEmail(string email)
+        public async Task<UserDto?> GetByUserEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
-                return new UserDto();
+                return null;
             using (StoreDbContext storeDbContext = new StoreDbContext())
             {
-               return storeDbContext.Users.SingleOrDefault(user => user.Email == email); 
+               return await storeDbContext.Users.SingleOrDefaultAsync(user => user.Email == email); 
 
             }
 
         }
-        public UserDto GetByUserPhone(string phone)
+        public async Task<UserDto?> GetByUserPhone(string phone)
         {
             if (string.IsNullOrEmpty(phone))
-                return new UserDto();
+                return null;
             using (StoreDbContext storeDbContext = new StoreDbContext())
             {
-                return storeDbContext.Users.SingleOrDefault(user => user.Phone == phone);
+                return await storeDbContext.Users.SingleOrDefaultAsync(user => user.Phone == phone);
 
             }
 
         }
-        public UserDto GetByUserId(int userId)
+        public async Task<UserDto?> GetByUserIdAsync(int userId)
         {
             using (StoreDbContext storeDbContext = new StoreDbContext())
             {
-                return storeDbContext.Users.SingleOrDefault(user => user.Id == userId);
+                return await storeDbContext.Users.SingleOrDefaultAsync(user => user.Id == userId);
             }
         }
 

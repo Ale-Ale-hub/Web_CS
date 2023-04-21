@@ -13,23 +13,19 @@ namespace Web_C_.Controllers
     public class Categories : Controller
     {
         private readonly IProductBL productBL;
-        bool sortByName = false;
         public Categories(IProductBL productBL)
         {
             this.productBL = productBL;
         }
-        public IActionResult Phone()
+        public async Task<IActionResult> Phone()
         {
-            
-
-            return View("Result", productBL.GetPhonesAsync().Result);
-
+            return View("Result", await productBL.GetPhonesAsync());
         }
         [HttpPost]
-        public IActionResult Result(string query) 
+        public async Task<IActionResult> Result(string query) 
         {
             
-            return View(productBL.GetProductsAsync(query).Result);
+            return View(await productBL.GetProductsAsync(query));
         }
         //public IActionResult SortByName()
         //{

@@ -27,20 +27,19 @@ namespace Web_C_.Controllers
 
         public IActionResult Login()
         {
-            ViewBag.Authenticate = true;
             return View();
         }
         [HttpPost]
 
-        public IActionResult Login(string email, string  password)
+        public async Task<IActionResult> Login(string email, string  password)
         {
-            (int userId, UserViewModel user) = userBL.Authenticate(email, password);
+            (int userId, UserViewModel? user) = await userBL.AuthenticateAsync(email, password);
             if (user == null)
             {
                 userBL.ValidateLogin(ModelState);
                 return View();
             }
-            sessionDb.SetUserId(userId);
+            await sessionDb.SetUserIdAsync(userId);
 
             return View("SuccessfulLogin", user);
         }
@@ -53,7 +52,7 @@ namespace Web_C_.Controllers
         }
         [HttpPost]
 
-        public IActionResult Registration(RegistrationModel registration)
+        public async Task<IActionResult> Registration(RegistrationModel registration)
         {
             if (ModelState.IsValid)
             {
@@ -62,9 +61,9 @@ namespace Web_C_.Controllers
                 
                 if (ModelState.IsValid)
                 {
-                    UserViewModel user = userBL.AddUser(registration);
+                    UserViewModel user = await userBL.AddUserAsync(registration);
 
-                    sessionDb.SetUserId(userBL.GetUserId(user.Email, user.Phone));
+                    await sessionDb.SetUserIdAsync(await userBL.GetUserIdAsync(user.Email, user.Phone));
 
                     return View("SuccessfulRegistration", registration);
                 }

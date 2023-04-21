@@ -9,10 +9,10 @@ namespace Web_C_.Controllers
     public class Order : Controller
     {
 
-        public Car car;
-        public Cart cart;
-        public Product product;
-        private ProductItem ProductItem;
+        public Car? car;
+        public Cart? cart;
+        public Product? product;
+        private ProductItem? ProductItem;
         private readonly OrderRepository orderRepository;
         private readonly IProductBL productBL;
 
@@ -24,9 +24,9 @@ namespace Web_C_.Controllers
 
 
         
-        public IActionResult AddProductItem(int Id,int count =1)
+        public async Task<IActionResult> AddProductItem(int Id,int count =1)
         {
-            ProductItem = productBL.GetProductIdAsync(Id).Result;
+            ProductItem = await productBL.GetProductIdAsync(Id);
             product = new Product(ProductItem);
             product.AddProductItem(ProductItem, count);
             if (HttpContext.Session.TryGetCart(out cart))
@@ -51,9 +51,9 @@ namespace Web_C_.Controllers
             HttpContext.Session.Set(cart);
             return RedirectToAction(nameof(Order.Cart));
         }
-        public IActionResult DeleteProductItem(int Id, int count = 1)
+        public async Task<IActionResult> DeleteProductItem(int Id, int count = 1)
         {
-            ProductItem = productBL.GetProductIdAsync(Id).Result;
+            ProductItem = await productBL.GetProductIdAsync(Id);
             product = new Product(ProductItem);
             if (HttpContext.Session.TryGetCart(out cart))
             {
@@ -78,7 +78,6 @@ namespace Web_C_.Controllers
                 car = orderRepository.GetById(cart.CartId);
 
                 return View(car);
-
             }
 
             return View();

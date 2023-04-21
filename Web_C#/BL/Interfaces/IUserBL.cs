@@ -7,9 +7,9 @@ namespace Web_C_.BL.Interfaces
 {
     public interface IUserBL
     {
-        public (int id, UserViewModel) Authenticate(string email, string password);
-        public UserViewModel AddUser(RegistrationModel user);
-        public int GetUserId(string? email, string? phone);
+        public Task<(int id, UserViewModel?)> AuthenticateAsync(string email, string password);
+        public Task<UserViewModel> AddUserAsync(RegistrationModel user);
+        public Task<int> GetUserIdAsync(string? email, string? phone);
         public void ValidateEmail(string email, ModelStateDictionary modelState);
         public void ValidatePhone(string phone, ModelStateDictionary modelState);
         public void ValidateLogin(ModelStateDictionary modelState);

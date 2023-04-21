@@ -7,11 +7,11 @@ namespace Resunet.BL.Auth
     {
         Task<SessionDto> GetSession();
 
-        Task SetUserId(int userId);
+        Task SetUserIdAsync(int userId);
 
         Task<int?> GetUserId();
 
-        Task<bool> IsLoggedIn();
+        Task<bool> IsLoggedInAsync();
     }
 }
 

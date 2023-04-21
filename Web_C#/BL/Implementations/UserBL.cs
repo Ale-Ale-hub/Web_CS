@@ -18,23 +18,31 @@ namespace Web_C_.BL.Implementations
         {
             this.userDAL = userDAL;
         }
-        public UserViewModel AddUser(RegistrationModel user)
+        public async Task<UserViewModel> AddUserAsync(RegistrationModel user)
         {
             string salt = Guid.NewGuid().ToString();
             user.Password = HashPassword(user.Password, salt);
-            userDAL.AddUser(new UserDto() { Name= user.Name, Email= user.Email, Phone = user.Phone, Password = user.Password, Salt = salt});
+            await userDAL.AddUser(new UserDto() { Name= user.Name, Email= user.Email, Phone = user.Phone, Password = user.Password, Salt = salt});
             return new UserViewModel(user.Name, user.Email, user.Phone);
         }
 
-        public (int id,UserViewModel) Authenticate(string email, string password)
+        public async Task<(int id,UserViewModel?)> AuthenticateAsync(string email, string password)
         {
-           UserDto user = userDAL.GetByUserEmail(email);
+           UserDto? user = await userDAL.GetByUserEmail(email);
             
-            if (user == null || user.Password != HashPassword(password, user.Salt))
+            if (user == null || user.Password != HashPassword(password, user.Salt!))
               return (0, null);
             SaveUser();
 
-            return (user.Id, new UserViewModel(user.Name, user.Email, user.Phone));
+            return (user.Id, new UserViewModel(user.Name!, user.Email!, user.Phone!));
+        }
+        public async Task<int> GetUserIdAsync(string? email, string? phone)
+        {
+            if (email == null && phone == null)
+                return 0;
+            if (email != null)
+                return (await userDAL.GetByUserEmail(email))?.Id ?? 0;
+            return (await userDAL.GetByUserEmail(phone!))?.Id ?? 0;
         }
 
         private void SaveUser()
@@ -64,14 +72,7 @@ namespace Web_C_.BL.Implementations
             modelState.TryAddModelError(nameof(RegistrationModel.Email), new ValidationResult("Email уже существует").ErrorMessage!);
         }
 
-        public int GetUserId(string? email, string? phone)
-        {
-            if (email == null && phone == null)
-                return 0;
-            if (email != null)
-               return userDAL.GetByUserEmail(email)?.Id ?? 0;
-            return userDAL.GetByUserEmail(phone!)?.Id ?? 0;
-        }
+       
 
 
         private string HashPassword(string password, string salt)
