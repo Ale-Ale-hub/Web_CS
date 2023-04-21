@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Web_C_.DAL.Configuration;
+using Web_C_.DAL.Model;
 using Web_C_.DAL.Model.TypeProducts;
 using Web_C_.Database.Data;
 
@@ -11,7 +12,7 @@ namespace Web_C_.Database
         public DbSet<UserDto > Users { get; set; }
         public DbSet<ProductDto> Products { get; set; }
         public DbSet<PhoneDto> Phones { get; set; }
-
+        public DbSet<SessionDto> Sessions { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=StoreDb;Trusted_Connection=true");
@@ -21,8 +22,7 @@ namespace Web_C_.Database
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
-            
-
+            modelBuilder.ApplyConfiguration(new SessionConfiguration());
             modelBuilder.Entity<PhoneDto>().HasData(new[]
             {
 

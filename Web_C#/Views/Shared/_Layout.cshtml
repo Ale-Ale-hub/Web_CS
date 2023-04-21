@@ -1,5 +1,5 @@
 ﻿@using Web_C_.BL.Implementations.Order;
-
+@using Web_C_.BL.Implementations;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +34,13 @@
                                 <a href="" class="header_nav_lists_item_number_icon"><i class="fa fa-phone" aria-hidden="true"></i>Обратный звонок</a>
                         </div>
                         <ul class="header_nav_lists_section">
-                            <li class="header_nav_lists_item_login"><a asp-action="@nameof(Home.Login)" asp-controller="@nameof(Home)">Вход<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                        @* @if (Context.Request.Cookies.ContainsKey(AuthConstants.SessionCookieName))
+                        {
+                            <li class="header_nav_lists_item_login" ><a>Привет ...<i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
+                        }else*@
+                        @*{*@
+                            <li class="header_nav_lists_item_login"><a asp-action="@nameof(Identification.Login)" asp-controller="@nameof(Identification)">Вход<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                        @*}*@
                         </ul>
                     </div>
                 </div>

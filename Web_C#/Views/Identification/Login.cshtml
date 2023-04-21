@@ -1,6 +1,8 @@
-﻿@{
+﻿@using Web_C_.ModelsView;
+@{
     ViewData["Title"] = "Вход";
 }
+@model UserViewModel
 <section class="log">
     <div class="container">
         <h2 class="log_title">Авторизация</h2>
@@ -8,7 +10,7 @@
         <div class="log_account-registration">
             <div class="log_account">
                 <div class="log_subtitle">У меня уже есть учетная запись</div>
-                <form asp-action="@nameof(Home.Login)" asp-controller="@nameof(Home)" class="log_form" method="post">
+                <form asp-action="@nameof(Identification.Login)" asp-controller="@nameof(Identification)" class="log_form" method="post">
                     <div class="log_form_group">
                         <label for="email">Email*</label>
                         <div class="log_form_group_wrapper">
@@ -20,13 +22,9 @@
                         <label for="password">Password*</label>
                         <div class="log_form_group_wrapper">
                             <input type="password" name="password">
-                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                            <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                     </div>
-                    @if (!ViewBag.Authenticate)
-                    {
-                    <div>Вы неправильно ввели пароль или email</div>
-                    }
                     <a href="" class="log_form_forgot_your_password">Забыли пароль?</a>
                     <button>вход</button>
                 </form>
@@ -34,7 +32,7 @@
             <div class="log_registration">
                 <div class="log_registration_title">Я - новый покупатель</div>
                 <div class="log_registration_text">Регистрация на сайте позволит быстро оформлять заказы, управлять заказами через личный кабинет, в полном объеме использовать возможности нашего интернет магазина.</div>
-                <a asp-action="@nameof(Home.Registration)" asp-controller="@nameof(Home)" class="log_registration_button">регистрация</a>
+                <a asp-action="@nameof(Identification.Registration)" asp-controller="@nameof(Identification)" class="log_registration_button">регистрация</a>
             </div>
         </div>
                 

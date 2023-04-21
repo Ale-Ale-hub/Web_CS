@@ -1,3 +1,4 @@
+using Resunet.BL.Auth;
 using Web_C_.BL.Implementations;
 using Web_C_.BL.Interfaces;
 using Web_C_.DAL.Implementations;
@@ -14,10 +15,13 @@ namespace Web_C_
 
             IServiceCollection services = builder.Services;
             services.AddControllersWithViews();
-            services.AddSingleton<IUserBL, UserModel>();
+            services.AddSingleton<IUserBL, UserBL>();
             services.AddSingleton<IProductBL, ProductBL>();
             services.AddSingleton< IUserDAL, UserDAL >();
             services.AddSingleton<ProductsDAL>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<ISessionDAL, SessionDAL>();
+            services.AddScoped<ISessionDb, SessionDb>();
 
             services.AddSingleton<OrderRepository>();
             services.AddDistributedMemoryCache();
@@ -34,7 +38,7 @@ namespace Web_C_
             
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Identification/Error");
                 
                 app.UseHsts();
             }

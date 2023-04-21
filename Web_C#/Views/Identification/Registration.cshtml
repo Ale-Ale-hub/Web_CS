@@ -10,7 +10,7 @@
         <h2 class="registration_title">Регистрация</h2>
         <div class="registration_path"><a asp-action="@nameof(Home.Index)" asp-controller="@nameof(Home)">Главная</a><span>/</span>Регистрация</div>
         <div class="registration_account">
-                <form asp-action="@nameof(Home.Registration)" asp-controller="@nameof(Home)" method="post" class="registration_account_form">
+                <form asp-action="@nameof(Identification.Registration)" asp-controller="@nameof(Identification)" method="post" class="registration_account_form">
                     <div class="registration_account_form_group">
                         <label asp-for="Name"></label>
                         <div class="registration_account_form_group_wrapper">
@@ -25,12 +25,6 @@
                         <div class="registration_account_form_group_wrapper">
                             <input asp-for="Email" name="Email">
                             <span asp-validation-for="Email" class="text-danger">
-
-                            @if((ViewData["UserVerification"] as UserVerificationViewModel).Email)
-                            {
-                                @:Почта: "@(Model.Email)" уже зарегестрирована
-                            }
-
                             </span>
                         </div>
                     </div>
@@ -39,10 +33,6 @@
                         <div class="registration_account_form_group_wrapper">
                             <input asp-for="Phone" placeholder="+7(999)9999999" name="Phone">
                             <span asp-validation-for="Phone" class="text-danger">
-                            @if((ViewData["UserVerification"] as UserVerificationViewModel).Phone)
-                            {
-                                @:Телефон: "@(Model.Phone)" уже зарегестрирован
-                            }
                             </span>
                         </div>
                     </div>
