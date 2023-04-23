@@ -1,0 +1,9 @@
+﻿@model string?
+
+ @if (Model != null)
+{
+    <li class="header_nav_lists_item_login" ><a asp-action="@nameof(Profile.Index)" asp-controller="@nameof(Profile)">@Model<i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
+}else
+{
+    <li class="header_nav_lists_item_login"><a asp-action="@nameof(Identification.Login)" asp-controller="@nameof(Identification)">Вход<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+}

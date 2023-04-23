@@ -8,31 +8,6 @@ namespace Web_C_
     public static class SessionExtensions
     {
         private const string keyCar = "car";
-        private const string keyUserName = "UserName";
-
-        public static void SetUserName(this ISession session, string name )
-        {
-            if (name.IsNullOrEmpty() && session.TryUserName(out name))
-                return;
-            session.SetString(keyUserName, name );
-
-        }
-        public static bool TryUserName(this ISession session, out string name)
-        {
-            if (session.TryGetValue(keyUserName, out byte[] value)) 
-            {
-                name = session.GetString(keyUserName)!;
-                return true;
-            }
-            name = null;
-            return false;
-        }
-        public static void RemoveUserName(this ISession session)
-        {
-            if (session.TryGetValue(keyUserName, out byte[] value))
-                session.Remove(keyUserName);
-        }
-
 
         public static void SetCart(this ISession session, Cart cart)
         {

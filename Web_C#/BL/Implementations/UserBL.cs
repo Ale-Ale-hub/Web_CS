@@ -70,10 +70,15 @@ namespace Web_C_.BL.Implementations
             modelState.TryAddModelError(nameof(RegistrationModel.Email), new ValidationResult("Email уже существует").ErrorMessage!);
         }
 
-       
+        public async Task<UserDto?> GetByUserIdAsync(int id)
+        {
+            return await userDAL.GetByUserIdAsync(id);
+
+        }
 
 
-        private string HashPassword(string password, string salt)
+
+         private string HashPassword(string password, string salt)
         {
             return Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password,

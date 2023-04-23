@@ -4,10 +4,12 @@ using Resunet.BL.Auth;
 using System.Numerics;
 using Web_C_.BL.Implementations;
 using Web_C_.BL.Interfaces;
+using Web_C_.Middleware;
 using Web_C_.ModelsView;
 
 namespace Web_C_.Controllers
 {
+    [SiteNotAuthorize()]
     public class Identification : Controller
     {
         private readonly ILogger<Identification> _logger;
@@ -40,9 +42,8 @@ namespace Web_C_.Controllers
                 return View();
             }
 
-            HttpContext.Session.SetUserName(user.Name);
             await sessionDb.SetUserIdAsync(userId);
-
+            //Поменять на RedirectAction
             return View("SuccessfulLogin", user);
         }
         public IActionResult Registration()
@@ -64,9 +65,8 @@ namespace Web_C_.Controllers
                 if (ModelState.IsValid)
                 {
                     UserViewModel user = await userBL.AddUserAsync(registration);
-                    HttpContext.Session.SetUserName(registration.Name);
                     await sessionDb.SetUserIdAsync(await userBL.GetUserIdAsync(user.Email, user.Phone));
-
+                    //Поменять на RedirectAction
                     return View("SuccessfulRegistration", registration);
                 }
             }
