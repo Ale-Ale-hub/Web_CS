@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Web_C_.BL.Implementations.Order;
 using Web_C_.BL.Interfaces;
 using Web_C_.Infrastructure;
+using Web_C_.Middleware;
 
 namespace Web_C_.Controllers
 {
+
     public class Order : Controller
     {
 
@@ -22,8 +24,6 @@ namespace Web_C_.Controllers
             this.productBL = productBL;
         }
 
-
-        
         public async Task<IActionResult> AddProductItem(int Id,int count =1)
         {
             ProductItem = await productBL.GetProductIdAsync(Id);
@@ -41,6 +41,8 @@ namespace Web_C_.Controllers
             HttpContext.Session.SetCart(cart);
             return RedirectToAction(nameof(Order.Cart));
         }
+        [SiteNotOrder()]
+
         public async Task<IActionResult> DeleteProductItem(int Id, int count = 1)
         {
             ProductItem = await productBL.GetProductIdAsync(Id);
@@ -61,6 +63,8 @@ namespace Web_C_.Controllers
 
         }
         [HttpGet]
+        [SiteNotOrder()]
+
         public IActionResult Cart() 
         {
             if (HttpContext.Session.TryGetCart(out cart))
@@ -72,6 +76,8 @@ namespace Web_C_.Controllers
 
             return View();
         }
+        [SiteNotOrder()]
+
         public IActionResult DeleteProduct(int id)
         {
             if (HttpContext.Session.TryGetCart(out cart)) 
@@ -101,6 +107,8 @@ namespace Web_C_.Controllers
                 return RedirectToAction(nameof(Home.Index), nameof(Home));
 
         }
+        [SiteNotOrder()]
+
         public IActionResult DeleteCart(int id)
         {
             if (HttpContext.Session.TryGetCart(out cart))
