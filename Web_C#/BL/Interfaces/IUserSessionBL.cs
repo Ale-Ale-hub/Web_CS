@@ -2,7 +2,7 @@
 
 namespace Web_C_.BL.Interfaces
 {
-    public interface IUserSession
+    public interface IUserSessionBL
     {
         Task<UserViewModel?> GetUserWithSession(Guid sessionID);
 

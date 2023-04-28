@@ -26,9 +26,21 @@ namespace Web_C_.Infrastructure
            return this.car.Remove(car);
 
         }
+        public Car CreatCart(out Cart cart)
+        {
+            Car carItem = Creat();
+            cart = new Cart(carItem.Id)
+            {
+                TotalCount = carItem.TotalCount,
+                TotalPrice = carItem.TotalPrice,
+            };
+            return carItem;
 
-        
-        
+        }
+
+
+
+
 
 
     }

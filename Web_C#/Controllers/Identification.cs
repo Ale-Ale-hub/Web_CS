@@ -48,9 +48,6 @@ namespace Web_C_.Controllers
         }
         public IActionResult Registration()
         {
-            //Проверка зарегестрирован ли пользователь
-            //Если да то выдать сообщение; вы уже зарегестрированны...
-            //Если нет продолжить выполнение следующего кода
             return View();
         }
         [HttpPost]

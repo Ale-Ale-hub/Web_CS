@@ -28,26 +28,16 @@ namespace Web_C_.Controllers
         {
             ProductItem = await productBL.GetProductIdAsync(Id);
             product = new Product(ProductItem);
-            product.AddProductItem(ProductItem, count);
             if (HttpContext.Session.TryGetCart(out cart))
-            {
                 car = orderRepository.GetById(cart.CartId);
-                car.AddProduct(product);
-
-                cart.TotalCount = car.TotalCount;
-                cart.TotalPrice = car.TotalPrice;
-
-            }
             else
-            {
-                car = orderRepository.Creat();
-                car.AddProduct(product);
-                cart = new Cart(car.Id) 
-                {
-                    TotalCount = car.TotalCount,
-                    TotalPrice = car.TotalPrice,
-                };
-            }
+                car = orderRepository.CreatCart(out cart);
+
+
+            product.AddProductItem(ProductItem, count);
+            car.AddProduct(product);
+            cart.TotalCount = car.TotalCount;
+            cart.TotalPrice = car.TotalPrice;
             HttpContext.Session.SetCart(cart);
             return RedirectToAction(nameof(Order.Cart));
         }
@@ -108,28 +98,22 @@ namespace Web_C_.Controllers
                 //Sorry...
                 return RedirectToAction();
             }
-            
                 return RedirectToAction(nameof(Home.Index), nameof(Home));
-
 
         }
         public IActionResult DeleteCart(int id)
         {
             if (HttpContext.Session.TryGetCart(out cart))
             {
-
                 if (orderRepository.DeleteCarItem(orderRepository.GetById(cart.CartId)))
                 {
-
                     HttpContext.Session.RemoveCart();
                     return RedirectToAction(nameof(Order.Cart), nameof(Order));
-
 
                 }
                 //Sorry...
                 return RedirectToAction();
             }
-
 
             return RedirectToAction(nameof(Home.Index), nameof(Home));
 

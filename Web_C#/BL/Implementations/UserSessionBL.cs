@@ -6,7 +6,7 @@ using Web_C_.ModelsView;
 
 namespace Web_C_.BL.Implementations
 {
-    public class UserSessionBL : IUserSession
+    public class UserSessionBL : IUserSessionBL
     {
         private readonly ISessionDAL sessionDAL;
         private readonly IUserDAL userDAL;
